@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Non-Probability Sampling Network for Stochastic Human Trajectory Prediction | Project Page</title>
+  <meta content="" name="Project page for 'Non-Probability Sampling Network for Stochastic Human Trajectory Prediction'">
+  <meta content="" name="Inhwan Bae, South Korea">
+  <link rel="canonical" href="https://inhwanbae.github.io/publication/npsn/">
+
+  <!-- Favicons -->
+  <link href="/assets/img/favicon/favicon-publication.svg" rel="icon" type="image/svg+xml">
+  <link href="/assets/img/favicon/favicon-publication-32px.png" rel="icon" type="image/png" sizes="32x32">
+  <link href="/assets/img/favicon/favicon-publication-512px.png" rel="icon" type="image/png" sizes="512x512">
+  <link href="/assets/img/favicon/favicon-publication.svg" rel="mask-icon" color="#000000">
+  <link href="/assets/img/favicon/favicon-publication-180px.png" rel="apple-touch-icon" type="image/png" sizes="180x180">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Publication Files -->
+  <link href="/assets/css/publication_style.css" rel="stylesheet">
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-7YTD839GNQ"></script>
+  <script> window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'G-7YTD839GNQ');</script>
+</head>
+
+<body>
+  <main id="main">
+    <section class="publication">
+      <div class="container">
+        <div class="publication-title">
+          <h2>Non-Probability Sampling Network for Stochastic Human Trajectory Prediction</h2>
+          <h4>
+            <a href="https://InhwanBae.github.io" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Go to Homepage">Inhwan Bae</a>,
+            Jin-Hwi Park and
+            <a href="https://scholar.google.com/citations?user=Ei00xroAAAAJ" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-html="true" title="<b>Corresponding Author</b> <br> Go to Google Scholar">Hae-Gon Jeon*</a>
+          </h4>
+          <h6>Computer Vision and Pattern Recognition 2022</h6>
+          <div class="btn-group" role="group" aria-label="Top menu">
+            <a class="btn btn-primary" target="_blank" href="https://InhwanBae.github.io/publication/npsn/">Project</a>
+            <!--<a class="btn btn-outline-primary" target="_blank" href="https://openaccess.thecvf.com/content/CVPR2022/html/Bae_Non-Probability_Sampling_Network_for_Stochastic_Human_Trajectory_Prediction_CVPR_2022_paper.html">Paper</a>-->
+            <a class="btn btn-outline-primary" target="_blank" href="https://arxiv.org/pdf/2203.13471.pdf">Paper</a>
+            <a class="btn btn-outline-primary" target="_blank" href="https://github.com/InhwanBae/NPSN">Code</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="container">
+        <div class="publication-detail">
+          <h3>Abstract</h3>
+          <p>Capturing multimodal natures is essential for stochastic pedestrian trajectory prediction, to infer a finite set of future trajectories. The inferred trajectories are based on observation paths and the latent vectors of potential decisions of pedestrians in the inference step. However, stochastic approaches provide varying results for the same data and parameter settings, due to the random sampling of the latent vector. In this paper, we analyze the problem by reconstructing and comparing probabilistic distributions from prediction samples and socially-acceptable paths, respectively. Through this analysis, we observe that the inferences of all stochastic models are biased toward the random sampling, and fail to generate a set of realistic paths from finite samples. The problem cannot be resolved unless an infinite number of samples is available, which is infeasible in practice. We introduce that the Quasi-Monte Carlo (QMC) method, ensuring uniform coverage on the sampling space, as an alternative to the conventional random sampling. With the same finite number of samples, the QMC improves all the multimodal prediction results. We take an additional step ahead by incorporating a learnable sampling network into the existing networks for trajectory prediction. For this purpose, we propose the Non-Probability Sampling Network (NPSN), a very small network (~5K parameters) that generates purposive sample sequences using the past paths of pedestrians and their social interactions. Extensive experiments confirm that NPSN can significantly improve both the prediction accuracy (up to 60%) and reliability of the public pedestrian trajectory prediction benchmark.</p>
+          <br><br>
+          <h3>Sampling Method</h3>
+          <div class="row">
+            <div class="col-md-6">
+              <img src="/assets/img/npsn/npsn-teaser-animated.png" alt="Image" align="right" style='height: 100%; width: 100%; max-width: 500px; object-fit: contain'>
+            </div>
+            <div class="col-md-6">
+              <img src="/assets/img/npsn/npsn-teaser-sampling.png" alt="Image" align="left" style='height: 100%; width: 100%; max-width: 500px; object-fit: contain'>
+            </div>
+          </div>
+          <br><br>
+          <h5>Generated Trajectories Are Biased</h5>
+          <p>Stochastic trajectory prediction models start by generating a random hypothesis. In practice, a fixed number of multiple trajectories are randomly sampled using the Monte Carlo (MC) method, and all existing stochastic models follow this random sampling strategy. However, the number of samples is typically too small to represent socially-acceptable pedestrian trajectories because they are biased toward the random sampling.</p>
+          <br><br>
+          <div class="row">
+            <div class="col-md-6">
+              <img src="/assets/img/npsn/npsn-points1.svg" alt="Image" align="right" style='height: 100%; width: 100%; max-width: 500px; object-fit: contain'>
+            </div>
+            <div class="col-md-6">
+              <img src="/assets/img/npsn/npsn-points2.svg" alt="Image" align="left" style='height: 100%; width: 100%; max-width: 500px; object-fit: contain'>
+            </div>
+          </div>
+          <br><br>
+          <h5>Bias Alleviation</h5>
+          <p>We introduce a Quasi-Monte Carlo (QMC) sampling method that effectively alleviates this problem using a low-discrepancy sequence, instead of random sampling. From the view of numerical analysis, a low-discrepancy sequence can be much better than the random one, for a function with a finite variation. For QMC, as the sample comes from a quasi-random sequence, they can be uniformly spaced. This guarantees a suitable distribution for pedestrian trajectory prediction by successively constructing finer uniform partitions. As a result, the low discrepancy sequences have lower errors for the same number of points (N=20).</p>
+          <br><br>
+          <!--<img src="/assets/img/npsn/npsn-model.svg" alt="Image" style='height: 100%; width: 100%; max-width: 1000px; object-fit: contain'>-->
+          <div class="row">
+            <div class="col-md-6">
+              <img src="/assets/img/npsn/npsn-model1.svg" alt="Image" align="right" style='height: 100%; width: 100%; max-width: 500px; object-fit: contain'>
+            </div>
+            <div class="col-md-6">
+              <img src="/assets/img/npsn/npsn-model2.svg" alt="Image" align="left" style='height: 100%; width: 100%; max-width: 500px; object-fit: contain'>
+            </div>
+          </div>
+          <br><br>
+          <h5>Purposive Sampling</h5>
+          <p>We push the random sampling forward with a learnable method: Non-Probability Sampling Network (NPSN), a very small network that generates purposive sample sequences using observations and agent interactions. Unlike previous methods, our approach focuses on the sampling method to generate a set of random latent vectors. For that reason, our NPSN maximizes the capability of all types of trajectory generation models including GAN-, CVAE- and Gaussian distribution-based approaches without structurally modifying the existing models.</p>
+          <br><br>
+          <h3>Qualitative Results</h3>
+          <img src="/assets/img/npsn/npsn-qualitative.svg" alt="Image" style='height: 100%; width: 100%; max-width: 1000px; object-fit: contain'>
+          <div style="text-align: center"> Visualization of probabilistic distributions and the best predictions among sampled trajectories with MC, QMC, and NPSN in SGCN. </div>
+          <br><br>
+          <img src="/assets/img/npsn/npsn-sampling.svg" alt="Image" style='height: 100%; width: 100%; max-width: 1000px; object-fit: contain'>
+          <div style="text-align: center"> N=20, Prediction results with PECNet on SDD dataset, Red box: Large bias of sampling. </div>
+          <br><br><br>
+          <h3>BibTeX</h3>
+          <pre>@inproceedings{bae2022npsn,<br>  title={Non-Probability Sampling Network for Stochastic Human Trajectory Prediction},<br>  author={Bae, Inhwan and Park, Jin-Hwi and Jeon, Hae-Gon},<br>  booktitle={Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition},<br>  year={2022}<br>}</pre>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Vendor JS Files -->
+  <script src="/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Main JS File -->
+  <script type="text/javascript">
+    var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+    var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+      return new bootstrap.Tooltip(tooltipTriggerEl)
+    })
+    var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'))
+    var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
+      return new bootstrap.Popover(popoverTriggerEl)
+    })
+  </script>
+
+</body>
+</html>
