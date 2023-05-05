@@ -108,10 +108,17 @@ section {
   left: calc(50% - 20px);
 }
 .publication .publication-title h4 {
-  line-height: 18px;
-  font-size: 18px;
+  line-height: 21px;
+  font-size: 17px;
   font-family: "Poppins", sans-serif;
   margin-bottom: 10px;
+  color: #000;
+}
+.publication .publication-title h6 {
+  line-height: 16px;
+  font-size: 15px;
+  /* font-family: "Poppins", sans-serif; */
+  margin-bottom: 14px;
   color: #000;
 }
 

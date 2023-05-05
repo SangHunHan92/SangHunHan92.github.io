@@ -25,33 +25,33 @@
 
   <!-- Publication Files -->
   <link href="/asset/css/publication_style.css" rel="stylesheet">
-
-  <!-- Global site tag (gtag.js) - Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-7YTD839GNQ"></script>
-  <script> window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'G-7YTD839GNQ');</script>
 </head>
 
 <body>
   <main id="main">
     <section class="publication">
       <div class="container">
-        <div class="publication-title">
+        <div class="publication-title">          
+          <h5>CVPR 2023 Highlight</h5>
           <h2>High-fidelity 3D Human Digitization from Single 2K Resolution Images</h2>
           <h4>
             <!-- <a href="https://InhwanBae.github.io" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Go to Homepage">Inhwan Bae</a>, -->
-            Sang-Hun Han,
-            Min-Gyu Park, 
-            Ju Hong Yoon, 
-            Ju-Mi Kang, 
-            Young-Jae Park, and 
-            <a href="https://scholar.google.com/citations?user=Ei00xroAAAAJ" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-html="true" title="<b>Corresponding Author</b> <br> Go to Google Scholar">Hae-Gon Jeon*</a>
+            Sang-Hun Han<sup>1</sup>,
+            Min-Gyu Park<sup>2</sup>, 
+            Ju Hong Yoon<sup>2</sup>, <br>
+            Ju-Mi Kang<sup>2</sup>, 
+            Young-Jae Park<sup>1</sup>, and 
+            <a href="https://scholar.google.com/citations?user=Ei00xroAAAAJ" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-html="true" title="<b>Corresponding Author</b> <br> Go to Google Scholar">Hae-Gon Jeon<sup>1</sup></a>
           </h4>
-          <h6>Computer Vision and Pattern Recognition 2023 Highlight</h6>
+          <h6>
+            <sup>1</sup>Gwangju Institute of Science and Technology, 
+            <sup>2</sup>Korea Electronics Technology Institute
+          </h6>
           <div class="btn-group" role="group" aria-label="Top menu">            
             <!--<a class="btn btn-outline-primary" target="_blank" href="https://openaccess.thecvf.com/content/CVPR2022/html/Bae_Non-Probability_Sampling_Network_for_Stochastic_Human_Trajectory_Prediction_CVPR_2022_paper.html">Paper</a>-->
             <a class="btn btn-primary" target="_blank" href="https://arxiv.org/pdf/2303.15108.pdf">Paper</a>
             <a class="btn btn-outline-primary" target="_blank" href="https://github.com/SangHunHan92/2K2K">Code</a>            
-            <a class="btn btn-outline-primary" target="_blank" href="https://sanghunhan92.github.io/conference/2K2K/">Video</a>
+            <a class="btn btn-outline-primary" target="_blank" href="https://sanghunhan92.github.io/conference/2K2K/">Video (Coming Soon)</a>
           </div>
         </div>
       </div>
@@ -59,62 +59,56 @@
       <div class="container">
         <div class="publication-detail">
           <h3>Abstract</h3>
-          <p>Capturing multimodal natures is essential for stochastic pedestrian trajectory prediction, to infer a finite set of future trajectories. The inferred trajectories are based on observation paths and the latent vectors of potential decisions of pedestrians in the inference step. However, stochastic approaches provide varying results for the same data and parameter settings, due to the random sampling of the latent vector. In this paper, we analyze the problem by reconstructing and comparing probabilistic distributions from prediction samples and socially-acceptable paths, respectively. Through this analysis, we observe that the inferences of all stochastic models are biased toward the random sampling, and fail to generate a set of realistic paths from finite samples. The problem cannot be resolved unless an infinite number of samples is available, which is infeasible in practice. We introduce that the Quasi-Monte Carlo (QMC) method, ensuring uniform coverage on the sampling space, as an alternative to the conventional random sampling. With the same finite number of samples, the QMC improves all the multimodal prediction results. We take an additional step ahead by incorporating a learnable sampling network into the existing networks for trajectory prediction. For this purpose, we propose the Non-Probability Sampling Network (NPSN), a very small network (~5K parameters) that generates purposive sample sequences using the past paths of pedestrians and their social interactions. Extensive experiments confirm that NPSN can significantly improve both the prediction accuracy (up to 60%) and reliability of the public pedestrian trajectory prediction benchmark.</p>
+          <p>High-quality 3D human body reconstruction requires high-fidelity and large-scale training data and appropriate network design that effectively exploits the high-resolution input images. To tackle these problems, we propose a simple yet effective 3D human digitization method called <b>2K2K</b>, which constructs a large-scale 2K human dataset and infers 3D human models from 2K resolution images. The proposed method separately recovers the global shape of a human and its details. The low-resolution depth network predicts the global structure from a low-resolution image, and the part-wise image-to-normal network predicts the details of the 3D human body structure. The high-resolution depth network merges the global 3D shape and the detailed structures to infer the high-resolution front and back side depth maps. Finally, an off-the-shelf mesh generator reconstructs the full 3D human model, which are available at https://github.com/SangHunHan92/2K2K. In addition, we also provide 2,050 3D human models, including texture maps, 3D joints, and SMPL parameters for research purposes. In experiments, we demonstrate competitive performance over the recent works on various datasets.</p>
           <br><br>
-          <h3>Sampling Method</h3>
+
+          <h3>Video</h3>
           <div class="row">
             <div class="col-md-6">
-              <img src="/assets/img/npsn/npsn-teaser-animated.png" alt="Image" align="right" style='height: 100%; width: 100%; max-width: 500px; object-fit: contain'>
+              <video width="" height="1024" autoplay loop src="/imgs/2K2K/hanni_zoom.mp4" type="video/mp4">
             </div>
             <div class="col-md-6">
-              <img src="/assets/img/npsn/npsn-teaser-sampling.png" alt="Image" align="left" style='height: 100%; width: 100%; max-width: 500px; object-fit: contain'>
+              <video width="" height="1024" autoplay loop src="/imgs/2K2K/hun_resize3.mp4" type="video/mp4">
             </div>
           </div>
+          <br><br>      
+
+          <h3>Method</h3>
+          <img src="/imgs/2K2K/teaser.svg" alt="Image" style='height: 100%; width: 100%; max-width: 1000px; object-fit: contain'>          
+          <p>An overall framework of 2k2k method. The first phase predicts the low-resolution front/back view depth maps, and the high-resolution front/back view normal maps by merging each part-wise normal maps. In the second phase, the high-resolution depth network upsamples the low-resolution depth maps with the guidance of the high-resolution normal maps. Finally, the mesh generation via screened Poisson reconstructs the full 3D model. </p>          
           <br><br>
-          <h5>Generated Trajectories Are Biased</h5>
-          <p>Stochastic trajectory prediction models start by generating a random hypothesis. In practice, a fixed number of multiple trajectories are randomly sampled using the Monte Carlo (MC) method, and all existing stochastic models follow this random sampling strategy. However, the number of samples is typically too small to represent socially-acceptable pedestrian trajectories because they are biased toward the random sampling.</p>
+
+          <h3>Dataset</h3>
+          <img src="/imgs/2K2K/dataset.jpg" alt="Image" style='height: 100%; width: 100%; max-width: 1000px; object-fit: contain'>          
+          <p>The 2K2K dataset consists of 2,050 3D human models scanned from scan booths, including high-quality public human scan models. Our dataset contains subjects of various genders, ages, objects, poses, and cloths with high-resolution scans.</p>
           <br><br>
-          <div class="row">
-            <div class="col-md-6">
-              <img src="/assets/img/npsn/npsn-points1.svg" alt="Image" align="right" style='height: 100%; width: 100%; max-width: 500px; object-fit: contain'>
-            </div>
-            <div class="col-md-6">
-              <img src="/assets/img/npsn/npsn-points2.svg" alt="Image" align="left" style='height: 100%; width: 100%; max-width: 500px; object-fit: contain'>
-            </div>
-          </div>
-          <br><br>
-          <h5>Bias Alleviation</h5>
-          <p>We introduce a Quasi-Monte Carlo (QMC) sampling method that effectively alleviates this problem using a low-discrepancy sequence, instead of random sampling. From the view of numerical analysis, a low-discrepancy sequence can be much better than the random one, for a function with a finite variation. For QMC, as the sample comes from a quasi-random sequence, they can be uniformly spaced. This guarantees a suitable distribution for pedestrian trajectory prediction by successively constructing finer uniform partitions. As a result, the low discrepancy sequences have lower errors for the same number of points (N=20).</p>
-          <br><br>
-          <!--<img src="/assets/img/npsn/npsn-model.svg" alt="Image" style='height: 100%; width: 100%; max-width: 1000px; object-fit: contain'>-->
-          <div class="row">
-            <div class="col-md-6">
-              <img src="/assets/img/npsn/npsn-model1.svg" alt="Image" align="right" style='height: 100%; width: 100%; max-width: 500px; object-fit: contain'>
-            </div>
-            <div class="col-md-6">
-              <img src="/assets/img/npsn/npsn-model2.svg" alt="Image" align="left" style='height: 100%; width: 100%; max-width: 500px; object-fit: contain'>
-            </div>
-          </div>
-          <br><br>
-          <h5>Purposive Sampling</h5>
-          <p>We push the random sampling forward with a learnable method: Non-Probability Sampling Network (NPSN), a very small network that generates purposive sample sequences using observations and agent interactions. Unlike previous methods, our approach focuses on the sampling method to generate a set of random latent vectors. For that reason, our NPSN maximizes the capability of all types of trajectory generation models including GAN-, CVAE- and Gaussian distribution-based approaches without structurally modifying the existing models.</p>
-          <br><br>
+
           <h3>Qualitative Results</h3>
-          <img src="/assets/img/npsn/npsn-qualitative.svg" alt="Image" style='height: 100%; width: 100%; max-width: 1000px; object-fit: contain'>
-          <div style="text-align: center"> Visualization of probabilistic distributions and the best predictions among sampled trajectories with MC, QMC, and NPSN in SGCN. </div>
-          <br><br>
-          <img src="/assets/img/npsn/npsn-sampling.svg" alt="Image" style='height: 100%; width: 100%; max-width: 1000px; object-fit: contain'>
-          <div style="text-align: center"> N=20, Prediction results with PECNet on SDD dataset, Red box: Large bias of sampling. </div>
+          <img src="/imgs/2K2K/comparison_sup_merge.jpg" alt="Image" style='height: 100%; width: 100%; max-width: 1000px; object-fit: contain'>          
+          <!-- <p>The 2K2K dataset consists of 2,050 3D human models scanned from scan booths, including high-quality public human scan models. Our dataset contains subjects of various genders, ages, objects, poses, and cloths with high-resolution scans.</p> -->
           <br><br><br>
+
+          <h3>Internet Photo Results</h3>
+          <img src="/imgs/2K2K/real_image.svg" alt="Image" style='height: 100%; width: 100%; max-width: 1000px; object-fit: contain'>          
+          <br>
+          <div style="text-align: center"> Single image 3D human reconstruction results in the wild. The images are downloaded from internet. </div>
+          <br><br><br>
+
+          <h3>Video Frame Results</h3>
+          <img src="/imgs/2K2K/real_video.jpg" alt="Image" style='height: 100%; width: 100%; max-width: 1000px; object-fit: contain'>          
+          <br>
+          <div style="text-align: center"> The result of reconstructing a video taken by a Youtube, Samsung Galaxy mobile phone, and DSLR, respectively. </div>
+          <br><br><br>
+
           <h3>BibTeX</h3>
-          <pre>@inproceedings{bae2022npsn,<br>  title={Non-Probability Sampling Network for Stochastic Human Trajectory Prediction},<br>  author={Bae, Inhwan and Park, Jin-Hwi and Jeon, Hae-Gon},<br>  booktitle={Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition},<br>  year={2022}<br>}</pre>
+          <pre>@inproceedings{han2023high,<br>  title={High-fidelity 3D Human Digitization from Single 2K Resolution Images},<br>  author={Han, Sang-Hun and Park, Min-Gyu and Yoon, Ju Hong and Kang, Ju-Mi and Park, Young-Jae and Jeon, Hae-Gon},<br>  booktitle={Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},<br>  year={2023}<br>}</pre>
         </div>
       </div>
     </section>
   </main>
 
   <!-- Vendor JS Files -->
-  <script src="/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="/asset/bootstrap/js/bootstrap.bundle.min.js"></script>
 
   <!-- Main JS File -->
   <script type="text/javascript">
