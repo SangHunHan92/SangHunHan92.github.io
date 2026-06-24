@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>PIAvatar: Physically Interactive Avatars via Deformation Gradient Decoupling | Project Page</title>
+  <meta content="" name="Project page for 'PIAvatar: Physically Interactive Avatars via Deformation Gradient Decoupling'">
+  <meta content="" name="Sang-Hun Han, South Korea">
+  <link rel="canonical" href="https://sanghunhan92.github.io/conference/PIAvatar/">
+
+  <!-- Favicons -->
+  <link href="/assets/img/favicon/favicon-publication.svg" rel="icon" type="image/svg+xml">
+  <link href="/assets/img/favicon/favicon-publication-32px.png" rel="icon" type="image/png" sizes="32x32">
+  <link href="/assets/img/favicon/favicon-publication-512px.png" rel="icon" type="image/png" sizes="512x512">
+  <link href="/assets/img/favicon/favicon-publication.svg" rel="mask-icon" color="#000000">
+  <link href="/assets/img/favicon/favicon-publication-180px.png" rel="apple-touch-icon" type="image/png" sizes="180x180">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="/asset/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Publication Files -->
+  <link href="/asset/css/publication_style.css" rel="stylesheet">
+</head>
+
+<body>
+  <main id="main">
+    <section class="publication">
+      <div class="container">
+        <div class="publication-title">
+          <h5>Preprint 2026</h5>
+          <h2>PIAvatar: Physically Interactive Avatars via Deformation Gradient Decoupling</h2>
+          <h4>
+            Sang-Hun Han<sup>1</sup>,
+            Min-Gyu Park<sup>2</sup>,
+            Jisu Shin<sup>1</sup>,
+            Seunghyun Shin<sup>1</sup>,
+            Jin-Hwi Park<sup>3</sup>, and
+            <a href="https://scholar.google.com/citations?user=Ei00xroAAAAJ" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-html="true" title="<b>Corresponding Author</b> <br> Go to Google Scholar">Hae-Gon Jeon<sup>4</sup></a>
+          </h4>
+          <h6>
+            <sup>1</sup>Gwangju Institute of Science and Technology,
+            <sup>2</sup>Korea Electronics Technology Institute,
+            <sup>3</sup>Chung-Ang University,
+            <sup>4</sup>Yonsei University
+          </h6>
+          <div class="btn-group" role="group" aria-label="Top menu">
+            <a class="btn btn-primary" target="_blank" href="#">Paper</a>
+            <a class="btn btn-outline-primary" target="_blank" href="#">Code (Coming Soon)</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="container">
+        <div class="publication-detail">
+
+          <h3>Teaser</h3>
+          <video width="640" height="" autoplay loop preload playsinline muted src="/imgs/PIAvatar/teaser.mp4" type="video/mp4"></video>
+          <p>PIAvatar enables physically aware interactions between avatars and their environment. By decoupling the deformation gradient from kinematic velocity, an avatar can respond to objects of different mass &mdash; e.g., kicking a light soccer ball &mdash; while still achieving its desired pose.</p>
+          <br><br>
+
+          <h3>Abstract</h3>
+          <p>3D human avatars have shown impressive visual fidelity driven by pose-conditioned models, yet they still lack the physical ability required for interactions with each other and environments. Although recent studies have made various attempts to incorporate physical characteristics into 3D avatars, they only exhibit limited physical deformations, often leading to constrained interaction behaviors. To resolve this issue, we present <b>PIAvatar</b>, a framework to simultaneously enable physically aware interactions between avatar-avatar and avatar-environment, and a non-rigid deformable human body simulation. In this work, our key insight is to <b>decouple kinematic velocity from deformation gradient</b>. When external forces act on avatars, the kinematic velocity induces stress which hinders the avatar's ability to achieve a desired pose. In addition, we integrate a skeletal framework within the avatar. It allows estimating its poses and real-time tracking in a closed form, even during non-rigid physical interactions. Our approach is implemented within a conventional Material Point Method framework to ensure physically consistent dynamics. We lastly evaluate the method on both human-object and human-human interaction scenarios to assess its behavior under diverse interaction settings.</p>
+          <br><br>
+
+          <h3>Method</h3>
+          <img src="/imgs/PIAvatar/framework.png" alt="Image" style='height: 100%; width: 100%; max-width: 1000px; object-fit: contain'>
+          <p>Overall framework of PIAvatar. We <b>decouple the deformation gradient from the kinematic velocity</b> so that external forces produce physically plausible deformations without preventing the avatar from reaching its target pose (Velocity Decoupling). A skeletal framework embedded in the avatar enables closed-form pose regression and real-time tracking even under non-rigid physical interaction. The whole pipeline runs inside a conventional Material Point Method (MPM) framework for physically consistent dynamics.</p>
+          <br><br>
+
+          <h3>Various Physical Interactions</h3>
+          <div class="row">
+            <div class="col-md-6">
+              <video width="100%" autoplay loop preload playsinline muted src="/imgs/PIAvatar/interact_punching.mp4" type="video/mp4"></video>
+              <div style="text-align: center">Punching ball</div>
+            </div>
+            <div class="col-md-6">
+              <video width="100%" autoplay loop preload playsinline muted src="/imgs/PIAvatar/interact_pillow.mp4" type="video/mp4"></video>
+              <div style="text-align: center">Pillow</div>
+            </div>
+          </div>
+          <br>
+          <div class="row">
+            <div class="col-md-6">
+              <video width="100%" autoplay loop preload playsinline muted src="/imgs/PIAvatar/interact_lowkick.mp4" type="video/mp4"></video>
+              <div style="text-align: center">Low kick</div>
+            </div>
+            <div class="col-md-6">
+              <video width="100%" autoplay loop preload playsinline muted src="/imgs/PIAvatar/interact_highfive.mp4" type="video/mp4"></video>
+              <div style="text-align: center">High five</div>
+            </div>
+          </div>
+          <br>
+          <div style="text-align: center">PIAvatar handles a wide range of human-object and human-human interactions with physically plausible deformation.</div>
+          <br><br>
+
+          <h3>Mass-aware Response</h3>
+          <div class="row">
+            <div class="col-md-6">
+              <video width="100%" autoplay loop preload playsinline muted src="/imgs/PIAvatar/basketball_light.mp4" type="video/mp4"></video>
+              <div style="text-align: center">Light basketball</div>
+            </div>
+            <div class="col-md-6">
+              <video width="100%" autoplay loop preload playsinline muted src="/imgs/PIAvatar/bowlingball_heavy.mp4" type="video/mp4"></video>
+              <div style="text-align: center">Heavy bowling ball</div>
+            </div>
+          </div>
+          <br>
+          <div style="text-align: center">The avatar's reaction adapts to the physical mass of the interacting object.</div>
+          <br><br>
+
+          <h3>Non-rigid Deformation</h3>
+          <div class="row">
+            <div class="col-md-6">
+              <video width="100%" autoplay loop preload playsinline muted src="/imgs/PIAvatar/nonrigid_original.mp4" type="video/mp4"></video>
+              <div style="text-align: center">Without decoupling</div>
+            </div>
+            <div class="col-md-6">
+              <video width="100%" autoplay loop preload playsinline muted src="/imgs/PIAvatar/nonrigid_ours.mp4" type="video/mp4"></video>
+              <div style="text-align: center">Ours</div>
+            </div>
+          </div>
+          <br>
+          <div style="text-align: center">Decoupling the deformation gradient lets the avatar deform softly under contact while still recovering its target pose.</div>
+          <br><br>
+
+          <h3>Soft-tissue Interaction (Belly &amp; Soccer Ball)</h3>
+          <video width="640" height="" autoplay loop preload playsinline muted src="/imgs/PIAvatar/belly_soccer.mp4" type="video/mp4"></video>
+          <br><br><br>
+
+          <h3>Resistance Simulation</h3>
+          <div class="row">
+            <div class="col-md-6">
+              <video width="100%" autoplay loop preload playsinline muted src="/imgs/PIAvatar/resistance_strong.mp4" type="video/mp4"></video>
+              <div style="text-align: center">Strong resistance</div>
+            </div>
+            <div class="col-md-6">
+              <video width="100%" autoplay loop preload playsinline muted src="/imgs/PIAvatar/resistance_weak.mp4" type="video/mp4"></video>
+              <div style="text-align: center">Weak resistance</div>
+            </div>
+          </div>
+          <br><br>
+
+          <h3>Heterogeneous Material</h3>
+          <video width="640" height="" autoplay loop preload playsinline muted src="/imgs/PIAvatar/heterogeneous.mp4" type="video/mp4"></video>
+          <br><br><br>
+
+          <h3>Deformation Gradient Visualization</h3>
+          <video width="640" height="" autoplay loop preload playsinline muted src="/imgs/PIAvatar/deformation_gradient.mp4" type="video/mp4"></video>
+          <br>
+          <div style="text-align: center">Visualization of the decoupled deformation gradient field during interaction.</div>
+          <br><br><br>
+
+          <h3>BibTeX</h3>
+          <pre>@article{han2026piavatar,<br>  title={PIAvatar: Physically Interactive Avatars via Deformation Gradient Decoupling},<br>  author={Han, Sang-Hun and Park, Min-Gyu and Shin, Jisu and Shin, Seunghyun and Park, Jin-Hwi and Jeon, Hae-Gon},<br>  year={2026}<br>}</pre>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Vendor JS Files -->
+  <script src="/asset/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Main JS File -->
+  <script type="text/javascript">
+    var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+    var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+      return new bootstrap.Tooltip(tooltipTriggerEl)
+    })
+    var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'))
+    var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
+      return new bootstrap.Popover(popoverTriggerEl)
+    })
+  </script>
+
+</body>
+</html>
