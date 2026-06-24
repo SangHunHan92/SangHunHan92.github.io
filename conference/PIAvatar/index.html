@@ -19,12 +19,37 @@
 
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,700&display=swap" rel="stylesheet">
 
   <!-- Vendor CSS Files -->
   <link href="/asset/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
   <!-- Publication Files -->
   <link href="/asset/css/publication_style.css" rel="stylesheet">
+
+  <!-- Page-specific: larger, more readable typography -->
+  <style>
+    .publication .container { max-width: 1100px; }
+    .publication .publication-title h2 { font-size: 40px; }
+    .publication .publication-title h4 { font-size: 21px; line-height: 28px; }
+    .publication .publication-title h6 { font-size: 18px; line-height: 22px; }
+    .publication .publication-detail h3 { font-size: 32px; margin-bottom: 6px; }
+    .publication .publication-detail p { font-size: 19px; line-height: 1.65; }
+    .publication .publication-detail .row + div,
+    .publication .publication-detail video + div,
+    .publication .publication-detail img + div { font-size: 18px; }
+    .publication pre { font-size: 16px; }
+    .publication .publication-title .btn { font-size: 20px; padding: 8px 18px; }
+    /* short per-clip labels under each video */
+    .publication .publication-detail .col-md-8 > div,
+    .publication .publication-detail .col-md-6 > div,
+    .publication .publication-detail .col-md-4 > div { font-size: 22px; margin-top: 4px; }
+    /* results tabs */
+    #resultsTab { justify-content: center; gap: 4px; margin-bottom: 22px; border: 0; }
+    #resultsTab .nav-link { font-size: 19px; color: #57606a; border-radius: 999px; padding: 7px 12px; }
+    #resultsTab .nav-link.active { background: #0563bb; color: #fff; font-weight: 600; }
+    #resultsTabContent .tab-pane { padding-top: 6px; }
+  </style>
 </head>
 
 <body>
@@ -32,22 +57,23 @@
     <section class="publication">
       <div class="container">
         <div class="publication-title">
-          <h5>Preprint 2026</h5>
-          <h2>PIAvatar: Physically Interactive Avatars via Deformation Gradient Decoupling</h2>
+          <h4>ECCV 2026</h4>
+          <h2>PIAvatar: Physically Interactive Avatars <br>via Deformation Gradient Decoupling</h2>
           <h4>
             Sang-Hun Han<sup>1</sup>,
-            Min-Gyu Park<sup>2</sup>,
-            Jisu Shin<sup>1</sup>,
-            Seunghyun Shin<sup>1</sup>,
-            Jin-Hwi Park<sup>3</sup>, and
-            <a href="https://scholar.google.com/citations?user=Ei00xroAAAAJ" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-html="true" title="<b>Corresponding Author</b> <br> Go to Google Scholar">Hae-Gon Jeon<sup>4</sup></a>
+            <a href="https://scholar.google.com/citations?user=VUj1ZWoAAAAJ&hl=en&oi=ao" target="_blank">Min-Gyu Park</a><sup>2</sup>,
+            <a href="https://jsshin.com/" target="_blank">Jisu Shin</a><sup>1</sup>, <br>
+            <a href="https://www.seunghyunshin.com/" target="_blank">Seunghyun Shin</a><sup>1</sup>,
+            <a href="https://www.jinhwipark.com/" target="_blank">Jin-Hwi Park</a><sup>3</sup>, and
+            <a href="https://sites.google.com/site/hgjeoncv" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-html="true" title="<b>Corresponding Author</b> <br> Go to homepage">Hae-Gon Jeon</a><sup>4<span style="font-size:0.7em; vertical-align:0.28em;">&dagger;</span></sup>
           </h4>
           <h6>
-            <sup>1</sup>Gwangju Institute of Science and Technology,
-            <sup>2</sup>Korea Electronics Technology Institute,
+            <sup>1</sup>GIST,
+            <sup>2</sup>KETI, 
             <sup>3</sup>Chung-Ang University,
             <sup>4</sup>Yonsei University
           </h6>
+          <h6 style="margin-bottom: 14px;"><sup>&dagger;</sup>Corresponding author</h6>
           <div class="btn-group" role="group" aria-label="Top menu">
             <a class="btn btn-primary" target="_blank" href="#">Paper</a>
             <a class="btn btn-outline-primary" target="_blank" href="#">Code (Coming Soon)</a>
@@ -58,9 +84,9 @@
       <div class="container">
         <div class="publication-detail">
 
-          <h3>Teaser</h3>
+          <!-- <h3>Teaser</h3> -->
           <video width="640" height="" autoplay loop preload playsinline muted src="/imgs/PIAvatar/teaser.mp4" type="video/mp4"></video>
-          <p>PIAvatar enables physically aware interactions between avatars and their environment. By decoupling the deformation gradient from kinematic velocity, an avatar can respond to objects of different mass &mdash; e.g., kicking a light soccer ball &mdash; while still achieving its desired pose.</p>
+          <p style="text-align: center; max-width: 950px; margin: 14px auto 0; font-family: 'DM Sans', sans-serif; font-size: 26px; line-height: 1.45; font-weight: 400; color: #202124;">We <b style="font-weight:700;">decouple the deformation gradient update</b> from the kinematic velocity, enabling <b style="font-weight:700;">bidirectional</b> and <b style="font-weight:700;">non-rigid</b> avatar interactions.</p>
           <br><br>
 
           <h3>Abstract</h3>
@@ -69,90 +95,121 @@
 
           <h3>Method</h3>
           <img src="/imgs/PIAvatar/framework.png" alt="Image" style='height: 100%; width: 100%; max-width: 1000px; object-fit: contain'>
-          <p>Overall framework of PIAvatar. We <b>decouple the deformation gradient from the kinematic velocity</b> so that external forces produce physically plausible deformations without preventing the avatar from reaching its target pose (Velocity Decoupling). A skeletal framework embedded in the avatar enables closed-form pose regression and real-time tracking even under non-rigid physical interaction. The whole pipeline runs inside a conventional Material Point Method (MPM) framework for physically consistent dynamics.</p>
+          <p style="max-width: 1000px; margin: 0 auto;">PIAvatar is built on the <b>Material Point Method (MPM)</b>, a particle&ndash;grid continuum framework that natively supports non-rigid deformation and bidirectional momentum transfer between an avatar and its surroundings. Driving such a simulation with user-defined motion, however, raises two challenges: <b>(i)</b> MPM's stress-based constitutive model generates restorative forces that counteract the applied kinematic velocity, preventing the avatar from reaching its target pose; and <b>(ii)</b> once the body is non-rigidly deformed, its pose can no longer be read off directly. PIAvatar resolves both in closed form. <b>Velocity Decoupling</b> explicitly excludes the user-defined kinematic velocity from the deformation gradient, so the avatar follows the intended motion without spurious stress while still reacting to genuine external forces. A <b>skeletal structure embedded in the avatar</b> then recovers the pose through a closed-form solution (Kabsch &rarr; LBS), enabling robust real-time tracking even under non-rigid physical interaction &mdash; without any per-frame optimization or learning.</p>
           <br><br>
 
-          <h3>Various Physical Interactions</h3>
-          <div class="row">
-            <div class="col-md-6">
-              <video width="100%" autoplay loop preload playsinline muted src="/imgs/PIAvatar/interact_punching.mp4" type="video/mp4"></video>
-              <div style="text-align: center">Punching ball</div>
-            </div>
-            <div class="col-md-6">
-              <video width="100%" autoplay loop preload playsinline muted src="/imgs/PIAvatar/interact_pillow.mp4" type="video/mp4"></video>
-              <div style="text-align: center">Pillow</div>
-            </div>
-          </div>
-          <br>
-          <div class="row">
-            <div class="col-md-6">
-              <video width="100%" autoplay loop preload playsinline muted src="/imgs/PIAvatar/interact_lowkick.mp4" type="video/mp4"></video>
-              <div style="text-align: center">Low kick</div>
-            </div>
-            <div class="col-md-6">
-              <video width="100%" autoplay loop preload playsinline muted src="/imgs/PIAvatar/interact_highfive.mp4" type="video/mp4"></video>
-              <div style="text-align: center">High five</div>
-            </div>
-          </div>
-          <br>
-          <div style="text-align: center">PIAvatar handles a wide range of human-object and human-human interactions with physically plausible deformation.</div>
+          <h3>Motivation</h3>
+          <img src="/imgs/PIAvatar/mpm_stress.png" alt="Motivation: kinematic velocity induces stress in basic MPM" style='height: 100%; width: 100%; max-width: 800px; object-fit: contain'>
+          <p><b>Why decoupling is necessary.</b> In standard MPM, each particle's stress <i>&sigma;<sub>p</sub></i> is derived solely from its deformation gradient <i>F<sub>p</sub></i>, and <i>F<sub>p</sub></i> encodes <i>every</i> deformation &mdash; including the purely <b>kinematic</b> motion imposed to drive a target pose. Consequently, the kinematic velocity that should simply pose the avatar (a) is accumulated into <i>F<sub>p</sub></i> (b) and mistaken for elastic strain, generating restorative stress <i>&sigma;<sub>p</sub></i> (c). This pose-induced stress (&#9888;) pushes back against the intended motion, so the avatar cannot reach its target pose and physical interactions are distorted. PIAvatar disentangles <i>F<sub>p</sub></i> into kinematic and elastic parts and removes the kinematic velocity from the stress computation, so that stress arises <b>only</b> from genuine physical contact.</p>
           <br><br>
 
-          <h3>Mass-aware Response</h3>
-          <div class="row">
-            <div class="col-md-6">
-              <video width="100%" autoplay loop preload playsinline muted src="/imgs/PIAvatar/basketball_light.mp4" type="video/mp4"></video>
-              <div style="text-align: center">Light basketball</div>
+          <h3>Results</h3>
+          <ul class="nav nav-pills" id="resultsTab" role="tablist">
+            <li class="nav-item" role="presentation"><button class="nav-link active" data-bs-toggle="pill" data-bs-target="#tab-hobject" type="button">Human-Object</button></li>
+            <li class="nav-item" role="presentation"><button class="nav-link" data-bs-toggle="pill" data-bs-target="#tab-hhuman" type="button">Human-Human</button></li>
+            <li class="nav-item" role="presentation"><button class="nav-link" data-bs-toggle="pill" data-bs-target="#tab-mass" type="button">Mass-aware</button></li>
+            <li class="nav-item" role="presentation"><button class="nav-link" data-bs-toggle="pill" data-bs-target="#tab-soft" type="button">Soft-tissue</button></li>
+            <!-- <li class="nav-item" role="presentation"><button class="nav-link" data-bs-toggle="pill" data-bs-target="#tab-resistance" type="button">Resistance</button></li> -->
+            <li class="nav-item" role="presentation"><button class="nav-link" data-bs-toggle="pill" data-bs-target="#tab-youngs" type="button">Stiffness-aware</button></li>
+            <li class="nav-item" role="presentation"><button class="nav-link" data-bs-toggle="pill" data-bs-target="#tab-hetero" type="button">Heterogeneous</button></li>
+            <li class="nav-item" role="presentation"><button class="nav-link" data-bs-toggle="pill" data-bs-target="#tab-defvis" type="button">Deformation</button></li>
+          </ul>
+
+          <div class="tab-content" id="resultsTabContent">
+            <!-- Human-Object -->
+            <div class="tab-pane fade show active" id="tab-hobject" role="tabpanel">
+              <div class="row">
+                <div class="col-md-6">
+                  <video class="w-100" loop muted playsinline preload="metadata" src="/imgs/PIAvatar/interact_punching.mp4"></video>
+                  <div style="text-align: center">Punching ball</div>
+                </div>
+                <div class="col-md-6">
+                  <video class="w-100" loop muted playsinline preload="metadata" src="/imgs/PIAvatar/interact_pillow.mp4"></video>
+                  <div style="text-align: center">Pillow</div>
+                </div>
+              </div>
             </div>
-            <div class="col-md-6">
-              <video width="100%" autoplay loop preload playsinline muted src="/imgs/PIAvatar/bowlingball_heavy.mp4" type="video/mp4"></video>
-              <div style="text-align: center">Heavy bowling ball</div>
+            <!-- Human-Human -->
+            <div class="tab-pane fade" id="tab-hhuman" role="tabpanel">
+              <div class="row">
+                <div class="col-md-6">
+                  <video class="w-100" loop muted playsinline preload="metadata" src="/imgs/PIAvatar/interact_lowkick.mp4"></video>
+                  <div style="text-align: center">Low kick</div>
+                </div>
+                <div class="col-md-6">
+                  <video class="w-100" loop muted playsinline preload="metadata" src="/imgs/PIAvatar/interact_highfive.mp4"></video>
+                  <div style="text-align: center">High five</div>
+                </div>
+              </div>
+            </div>
+            <!-- Mass-aware -->
+            <div class="tab-pane fade" id="tab-mass" role="tabpanel">
+              <div class="row">
+                <div class="col-md-6">
+                  <video class="w-100" loop muted playsinline preload="metadata" src="/imgs/PIAvatar/basketball_light.mp4"></video>
+                  <div style="text-align: center">Light basketball</div>
+                </div>
+                <div class="col-md-6">
+                  <video class="w-100" loop muted playsinline preload="metadata" src="/imgs/PIAvatar/bowlingball_heavy.mp4"></video>
+                  <div style="text-align: center">Heavy bowling ball</div>
+                </div>
+              </div>
+            </div>
+            <!-- Soft-tissue -->
+            <div class="tab-pane fade" id="tab-soft" role="tabpanel">
+              <div class="row">
+                <div class="col-md-8 offset-md-2">
+                  <video class="w-100" loop muted playsinline preload="metadata" src="/imgs/PIAvatar/soft_tissue_avatar.mp4"></video>
+                  <div style="text-align: center">Soft-tissue deformable avatar</div>
+                </div>
+              </div>
+            </div>
+            <!-- Resistance (hidden)
+            <div class="tab-pane fade" id="tab-resistance" role="tabpanel">
+              <div class="row">
+                <div class="col-md-6">
+                  <video class="w-100" loop muted playsinline preload="metadata" src="/imgs/PIAvatar/resistance_strong.mp4"></video>
+                  <div style="text-align: center">Strong resistance</div>
+                </div>
+                <div class="col-md-6">
+                  <video class="w-100" loop muted playsinline preload="metadata" src="/imgs/PIAvatar/resistance_weak.mp4"></video>
+                  <div style="text-align: center">Weak resistance</div>
+                </div>
+              </div>
+            </div>
+            -->
+            <!-- Young's Modulus -->
+            <div class="tab-pane fade" id="tab-youngs" role="tabpanel">
+              <div class="row">
+                <div class="col-md-6">
+                  <video class="w-100" loop muted playsinline preload="metadata" src="/imgs/PIAvatar/youngs_high.mp4"></video>
+                  <div style="text-align: center">High Young's modulus (stiff)</div>
+                </div>
+                <div class="col-md-6">
+                  <video class="w-100" loop muted playsinline preload="metadata" src="/imgs/PIAvatar/youngs_low.mp4"></video>
+                  <div style="text-align: center">Low Young's modulus (soft)</div>
+                </div>
+              </div>
+            </div>
+            <!-- Heterogeneous -->
+            <div class="tab-pane fade" id="tab-hetero" role="tabpanel">
+              <div class="row">
+                <div class="col-md-8 offset-md-2">
+                  <video class="w-100" loop muted playsinline preload="metadata" src="/imgs/PIAvatar/heterogeneous.mp4"></video>
+                  <div style="text-align: center">Heterogeneous material</div>
+                </div>
+              </div>
+            </div>
+            <!-- Deformation Visualization -->
+            <div class="tab-pane fade" id="tab-defvis" role="tabpanel">
+              <div class="row">
+                <div class="col-md-8 offset-md-2">
+                  <video class="w-100" loop muted playsinline preload="metadata" src="/imgs/PIAvatar/deformation_gradient.mp4"></video>
+                  <div style="text-align: center">Deformation gradient Visualization</div>
+                </div>
+              </div>
             </div>
           </div>
-          <br>
-          <div style="text-align: center">The avatar's reaction adapts to the physical mass of the interacting object.</div>
-          <br><br>
-
-          <h3>Non-rigid Deformation</h3>
-          <div class="row">
-            <div class="col-md-6">
-              <video width="100%" autoplay loop preload playsinline muted src="/imgs/PIAvatar/nonrigid_original.mp4" type="video/mp4"></video>
-              <div style="text-align: center">Without decoupling</div>
-            </div>
-            <div class="col-md-6">
-              <video width="100%" autoplay loop preload playsinline muted src="/imgs/PIAvatar/nonrigid_ours.mp4" type="video/mp4"></video>
-              <div style="text-align: center">Ours</div>
-            </div>
-          </div>
-          <br>
-          <div style="text-align: center">Decoupling the deformation gradient lets the avatar deform softly under contact while still recovering its target pose.</div>
-          <br><br>
-
-          <h3>Soft-tissue Interaction (Belly &amp; Soccer Ball)</h3>
-          <video width="640" height="" autoplay loop preload playsinline muted src="/imgs/PIAvatar/belly_soccer.mp4" type="video/mp4"></video>
-          <br><br><br>
-
-          <h3>Resistance Simulation</h3>
-          <div class="row">
-            <div class="col-md-6">
-              <video width="100%" autoplay loop preload playsinline muted src="/imgs/PIAvatar/resistance_strong.mp4" type="video/mp4"></video>
-              <div style="text-align: center">Strong resistance</div>
-            </div>
-            <div class="col-md-6">
-              <video width="100%" autoplay loop preload playsinline muted src="/imgs/PIAvatar/resistance_weak.mp4" type="video/mp4"></video>
-              <div style="text-align: center">Weak resistance</div>
-            </div>
-          </div>
-          <br><br>
-
-          <h3>Heterogeneous Material</h3>
-          <video width="640" height="" autoplay loop preload playsinline muted src="/imgs/PIAvatar/heterogeneous.mp4" type="video/mp4"></video>
-          <br><br><br>
-
-          <h3>Deformation Gradient Visualization</h3>
-          <video width="640" height="" autoplay loop preload playsinline muted src="/imgs/PIAvatar/deformation_gradient.mp4" type="video/mp4"></video>
-          <br>
-          <div style="text-align: center">Visualization of the decoupled deformation gradient field during interaction.</div>
           <br><br><br>
 
           <h3>BibTeX</h3>
@@ -175,6 +232,24 @@
     var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
       return new bootstrap.Popover(popoverTriggerEl)
     })
+
+    // Play only the videos in the active Results tab pane
+    function pauseAllResultVideos() {
+      document.querySelectorAll('#resultsTabContent video').forEach(function (v) { try { v.pause(); } catch (e) {} });
+    }
+    function playPaneVideos(pane) {
+      if (!pane) return;
+      pane.querySelectorAll('video').forEach(function (v) { var p = v.play(); if (p && p.catch) p.catch(function () {}); });
+    }
+    document.addEventListener('DOMContentLoaded', function () {
+      playPaneVideos(document.querySelector('#resultsTabContent .tab-pane.active'));
+    });
+    document.querySelectorAll('#resultsTab button[data-bs-toggle="pill"]').forEach(function (btn) {
+      btn.addEventListener('shown.bs.tab', function (e) {
+        pauseAllResultVideos();
+        playPaneVideos(document.querySelector(e.target.getAttribute('data-bs-target')));
+      });
+    });
   </script>
 
 </body>
