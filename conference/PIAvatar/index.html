@@ -44,11 +44,14 @@
     .publication .publication-detail .col-md-8 > div,
     .publication .publication-detail .col-md-6 > div,
     .publication .publication-detail .col-md-4 > div { font-size: 22px; margin-top: 4px; }
-    /* results tabs */
-    #resultsTab { justify-content: center; gap: 4px; margin-bottom: 22px; border: 0; }
-    #resultsTab .nav-link { font-size: 19px; color: #57606a; border-radius: 999px; padding: 7px 12px; }
-    #resultsTab .nav-link.active { background: #0563bb; color: #fff; font-weight: 600; }
-    #resultsTabContent .tab-pane { padding-top: 6px; }
+    /* results: 2-level tabs */
+    #resultsGroupTab { justify-content: center; gap: 8px; margin-bottom: 14px; border: 0; }
+    #resultsGroupTab .nav-link { font-size: 20px; font-weight: 600; color: #57606a; background: #eef1f4; border-radius: 999px; padding: 9px 26px; }
+    #resultsGroupTab .nav-link.active { background: #0563bb; color: #fff; }
+    .subtab { justify-content: center; gap: 4px; margin-bottom: 18px; border: 0; }
+    .subtab .nav-link { font-size: 18px; color: #57606a; background: #fff; border: 1px solid #d0d7de; border-radius: 999px; padding: 6px 14px; }
+    .subtab .nav-link.active { background: #e7f0fb; color: #0563bb; border-color: #0563bb; font-weight: 600; }
+    #resultsGroupContent .tab-pane { padding-top: 6px; }
   </style>
 </head>
 
@@ -103,19 +106,26 @@
           <p><b>Why decoupling is necessary.</b> In standard MPM, each particle's stress <i>&sigma;<sub>p</sub></i> is derived solely from its deformation gradient <i>F<sub>p</sub></i>, and <i>F<sub>p</sub></i> encodes <i>every</i> deformation &mdash; including the purely <b>kinematic</b> motion imposed to drive a target pose. Consequently, the kinematic velocity that should simply pose the avatar (a) is accumulated into <i>F<sub>p</sub></i> (b) and mistaken for elastic strain, generating restorative stress <i>&sigma;<sub>p</sub></i> (c). This pose-induced stress (&#9888;) pushes back against the intended motion, so the avatar cannot reach its target pose and physical interactions are distorted. PIAvatar disentangles <i>F<sub>p</sub></i> into kinematic and elastic parts and removes the kinematic velocity from the stress computation, so that stress arises <b>only</b> from genuine physical contact.</p>
           <br><br>
 
-          <h3>Results</h3>
-          <ul class="nav nav-pills" id="resultsTab" role="tablist">
-            <li class="nav-item" role="presentation"><button class="nav-link active" data-bs-toggle="pill" data-bs-target="#tab-hobject" type="button">Human-Object</button></li>
-            <li class="nav-item" role="presentation"><button class="nav-link" data-bs-toggle="pill" data-bs-target="#tab-hhuman" type="button">Human-Human</button></li>
-            <li class="nav-item" role="presentation"><button class="nav-link" data-bs-toggle="pill" data-bs-target="#tab-mass" type="button">Mass-aware</button></li>
-            <li class="nav-item" role="presentation"><button class="nav-link" data-bs-toggle="pill" data-bs-target="#tab-soft" type="button">Soft-tissue</button></li>
-            <!-- <li class="nav-item" role="presentation"><button class="nav-link" data-bs-toggle="pill" data-bs-target="#tab-resistance" type="button">Resistance</button></li> -->
-            <li class="nav-item" role="presentation"><button class="nav-link" data-bs-toggle="pill" data-bs-target="#tab-youngs" type="button">Stiffness-aware</button></li>
-            <li class="nav-item" role="presentation"><button class="nav-link" data-bs-toggle="pill" data-bs-target="#tab-hetero" type="button">Heterogeneous</button></li>
-            <li class="nav-item" role="presentation"><button class="nav-link" data-bs-toggle="pill" data-bs-target="#tab-defvis" type="button">Deformation</button></li>
+          <h3>Qualitative Results</h3>
+          <div id="resultsArea">
+
+          <!-- Level 1: result groups -->
+          <ul class="nav nav-pills" id="resultsGroupTab" role="tablist">
+            <li class="nav-item" role="presentation"><button class="nav-link active" data-bs-toggle="pill" data-bs-target="#group-interaction" type="button">Physical Interaction</button></li>
+            <li class="nav-item" role="presentation"><button class="nav-link" data-bs-toggle="pill" data-bs-target="#group-capability" type="button">Further Capabilities</button></li>
           </ul>
 
-          <div class="tab-content" id="resultsTabContent">
+          <div class="tab-content" id="resultsGroupContent">
+
+            <!-- ===== Group 1: Physical Interaction ===== -->
+            <div class="tab-pane fade show active" id="group-interaction" role="tabpanel">
+              <ul class="nav nav-pills subtab" role="tablist">
+                <li class="nav-item" role="presentation"><button class="nav-link active" data-bs-toggle="pill" data-bs-target="#tab-hobject" type="button">Human-Object</button></li>
+                <li class="nav-item" role="presentation"><button class="nav-link" data-bs-toggle="pill" data-bs-target="#tab-hhuman" type="button">Human-Human</button></li>
+                <li class="nav-item" role="presentation"><button class="nav-link" data-bs-toggle="pill" data-bs-target="#tab-mass" type="button">Mass-aware</button></li>
+                <li class="nav-item" role="presentation"><button class="nav-link" data-bs-toggle="pill" data-bs-target="#tab-youngs" type="button">Stiffness-aware</button></li>
+              </ul>
+              <div class="tab-content">
             <!-- Human-Object -->
             <div class="tab-pane fade show active" id="tab-hobject" role="tabpanel">
               <div class="row">
@@ -155,15 +165,6 @@
                 </div>
               </div>
             </div>
-            <!-- Soft-tissue -->
-            <div class="tab-pane fade" id="tab-soft" role="tabpanel">
-              <div class="row">
-                <div class="col-md-8 offset-md-2">
-                  <video class="w-100" loop muted playsinline preload="metadata" src="/imgs/PIAvatar/soft_tissue_avatar.mp4"></video>
-                  <div style="text-align: center">Soft-tissue deformable avatar</div>
-                </div>
-              </div>
-            </div>
             <!-- Resistance (hidden)
             <div class="tab-pane fade" id="tab-resistance" role="tabpanel">
               <div class="row">
@@ -191,25 +192,48 @@
                 </div>
               </div>
             </div>
+              </div><!-- /inner tab-content (interaction) -->
+            </div><!-- /group-interaction -->
+
+            <!-- ===== Group 2: Further Capabilities ===== -->
+            <div class="tab-pane fade" id="group-capability" role="tabpanel">
+              <ul class="nav nav-pills subtab" role="tablist">
+                <li class="nav-item" role="presentation"><button class="nav-link active" data-bs-toggle="pill" data-bs-target="#tab-soft" type="button">Soft-tissue</button></li>
+                <li class="nav-item" role="presentation"><button class="nav-link" data-bs-toggle="pill" data-bs-target="#tab-hetero" type="button">Heterogeneous</button></li>
+                <li class="nav-item" role="presentation"><button class="nav-link" data-bs-toggle="pill" data-bs-target="#tab-defvis" type="button">Deformation</button></li>
+              </ul>
+              <div class="tab-content">
+            <!-- Soft-tissue -->
+            <div class="tab-pane fade show active" id="tab-soft" role="tabpanel">
+              <div class="row">
+                <div class="col-md-8 offset-md-2">
+                  <video class="w-100" loop muted playsinline preload="metadata" src="/imgs/PIAvatar/soft_tissue_avatar.mp4"></video>
+                  <p style="max-width: 900px; margin: 10px auto 0; text-align: center;">Our simulator reproduces the secondary <b>soft-tissue jiggling</b> (e.g., of the belly) that simple LBS-based avatars cannot capture.</p>
+                </div>
+              </div>
+            </div>
             <!-- Heterogeneous -->
             <div class="tab-pane fade" id="tab-hetero" role="tabpanel">
               <div class="row">
                 <div class="col-md-8 offset-md-2">
-                  <video class="w-100" loop muted playsinline preload="metadata" src="/imgs/PIAvatar/heterogeneous.mp4"></video>
-                  <div style="text-align: center">Heterogeneous material</div>
+                  <video class="w-100" loop muted playsinline preload="metadata" src="/imgs/PIAvatar/heterogeneous.mp4"></video>                  
                 </div>
               </div>
+              <p style="max-width: 900px; margin: 10px auto 0; text-align: center;">Distinct material properties can be assigned to different body regions (e.g., <b>hair</b>, <b>clothing</b>, <b>feet</b>) within a single avatar, so each part deforms according to its own physical characteristics.</p>
             </div>
             <!-- Deformation Visualization -->
             <div class="tab-pane fade" id="tab-defvis" role="tabpanel">
               <div class="row">
                 <div class="col-md-8 offset-md-2">
-                  <video class="w-100" loop muted playsinline preload="metadata" src="/imgs/PIAvatar/deformation_gradient.mp4"></video>
-                  <div style="text-align: center">Deformation gradient Visualization</div>
+                  <video class="w-100" loop muted playsinline preload="metadata" src="/imgs/PIAvatar/deformation_gradient.mp4"></video>                  
                 </div>
               </div>
+              <p style="max-width: 900px; margin: 10px auto 0; text-align: center;"><b>Forces</b> transmitted through the avatar are visualized as changes in the <b>deformation gradient <i>F<sub>p</sub></b></i>, propagating outward from the contact point.</p>
             </div>
-          </div>
+              </div><!-- /inner tab-content (capability) -->
+            </div><!-- /group-capability -->
+          </div><!-- /resultsGroupContent -->
+          </div><!-- /resultsArea -->
           <br><br><br>
 
           <h3>BibTeX</h3>
@@ -233,21 +257,21 @@
       return new bootstrap.Popover(popoverTriggerEl)
     })
 
-    // Play only the videos in the active Results tab pane
+    // Play only the videos in the currently visible (active) Results pane (handles nested tabs)
     function pauseAllResultVideos() {
-      document.querySelectorAll('#resultsTabContent video').forEach(function (v) { try { v.pause(); } catch (e) {} });
+      document.querySelectorAll('#resultsArea video').forEach(function (v) { try { v.pause(); } catch (e) {} });
     }
-    function playPaneVideos(pane) {
-      if (!pane) return;
-      pane.querySelectorAll('video').forEach(function (v) { var p = v.play(); if (p && p.catch) p.catch(function () {}); });
+    function playActiveResultPane() {
+      var grp = document.querySelector('#resultsGroupContent > .tab-pane.active');
+      if (!grp) return;
+      var leaf = grp.querySelector('.tab-content > .tab-pane.active') || grp;
+      leaf.querySelectorAll('video').forEach(function (v) { var p = v.play(); if (p && p.catch) p.catch(function () {}); });
     }
-    document.addEventListener('DOMContentLoaded', function () {
-      playPaneVideos(document.querySelector('#resultsTabContent .tab-pane.active'));
-    });
-    document.querySelectorAll('#resultsTab button[data-bs-toggle="pill"]').forEach(function (btn) {
-      btn.addEventListener('shown.bs.tab', function (e) {
+    document.addEventListener('DOMContentLoaded', playActiveResultPane);
+    document.querySelectorAll('#resultsArea button[data-bs-toggle="pill"]').forEach(function (btn) {
+      btn.addEventListener('shown.bs.tab', function () {
         pauseAllResultVideos();
-        playPaneVideos(document.querySelector(e.target.getAttribute('data-bs-target')));
+        playActiveResultPane();
       });
     });
   </script>
