@@ -113,6 +113,7 @@
           <ul class="nav nav-pills" id="resultsGroupTab" role="tablist">
             <li class="nav-item" role="presentation"><button class="nav-link active" data-bs-toggle="pill" data-bs-target="#group-interaction" type="button">Physical Interaction</button></li>
             <li class="nav-item" role="presentation"><button class="nav-link" data-bs-toggle="pill" data-bs-target="#group-capability" type="button">Further Capabilities</button></li>
+            <li class="nav-item" role="presentation"><button class="nav-link" data-bs-toggle="pill" data-bs-target="#group-artifacts" type="button">Robust Contact</button></li>
           </ul>
 
           <div class="tab-content" id="resultsGroupContent">
@@ -180,14 +181,14 @@
             </div>
             -->
             <!-- Young's Modulus -->
-            <div class="tab-pane fade" id="tab-youngs" role="tabpanel">
+            <div class="tab-pane fade" id="tab-youngs" role="tabpanel" data-sync>
               <div class="row">
                 <div class="col-md-6">
-                  <video class="w-100" loop muted playsinline preload="metadata" src="/imgs/PIAvatar/youngs_high.mp4"></video>
+                  <video class="w-100" muted playsinline preload="metadata" src="/imgs/PIAvatar/youngs_high.mp4"></video>
                   <div style="text-align: center">High Young's modulus (stiff)</div>
                 </div>
                 <div class="col-md-6">
-                  <video class="w-100" loop muted playsinline preload="metadata" src="/imgs/PIAvatar/youngs_low.mp4"></video>
+                  <video class="w-100" muted playsinline preload="metadata" src="/imgs/PIAvatar/youngs_low.mp4"></video>
                   <div style="text-align: center">Low Young's modulus (soft)</div>
                 </div>
               </div>
@@ -199,6 +200,7 @@
             <div class="tab-pane fade" id="group-capability" role="tabpanel">
               <ul class="nav nav-pills subtab" role="tablist">
                 <li class="nav-item" role="presentation"><button class="nav-link active" data-bs-toggle="pill" data-bs-target="#tab-soft" type="button">Soft-tissue</button></li>
+                <li class="nav-item" role="presentation"><button class="nav-link" data-bs-toggle="pill" data-bs-target="#tab-cloth" type="button">Loose cloth</button></li>
                 <li class="nav-item" role="presentation"><button class="nav-link" data-bs-toggle="pill" data-bs-target="#tab-hetero" type="button">Heterogeneous</button></li>
                 <li class="nav-item" role="presentation"><button class="nav-link" data-bs-toggle="pill" data-bs-target="#tab-defvis" type="button">Deformation</button></li>
               </ul>
@@ -211,6 +213,15 @@
                   <p style="max-width: 900px; margin: 10px auto 0; text-align: center;">Our simulator reproduces the secondary <b>soft-tissue jiggling</b> (e.g., of the belly) that simple LBS-based avatars cannot capture.</p>
                 </div>
               </div>
+            </div>
+            <!-- Loose cloth -->
+            <div class="tab-pane fade" id="tab-cloth" role="tabpanel">
+              <div class="row">
+                <div class="col-md-4 offset-md-4">
+                  <video class="w-100" loop muted playsinline preload="metadata" data-rate="0.5" style="background:#fff" src="/imgs/PIAvatar/loose_cloth.mp4"></video>
+                </div>
+              </div>
+              <p style="max-width: 900px; margin: 10px auto 0; text-align: center;">Assigning cloth-like material properties lets the avatar wear <b>loose garments</b> that swing and wrinkle freely, driven by body motion and external contact.</p>
             </div>
             <!-- Heterogeneous -->
             <div class="tab-pane fade" id="tab-hetero" role="tabpanel">
@@ -232,8 +243,55 @@
             </div>
               </div><!-- /inner tab-content (capability) -->
             </div><!-- /group-capability -->
+
+            <!-- ===== Group 3: Mitigating Artifacts ===== -->
+            <div class="tab-pane fade" id="group-artifacts" role="tabpanel">
+              <ul class="nav nav-pills subtab" role="tablist">
+                <li class="nav-item" role="presentation"><button class="nav-link active" data-bs-toggle="pill" data-bs-target="#tab-preserve" type="button">Plasticity &amp; Stickiness</button></li>
+                <li class="nav-item" role="presentation"><button class="nav-link" data-bs-toggle="pill" data-bs-target="#tab-selfpen" type="button">Self-Penetration</button></li>
+              </ul>
+              <div class="tab-content">
+            <!-- Mesh Topology Preservation + Multi-field Contact (Stickiness) : Fig.12 (a,b,c) -->
+            <div class="tab-pane fade show active" id="tab-preserve" role="tabpanel" data-sync>
+              <div class="row">
+                <div class="col-md-4">
+                  <video class="w-100" muted playsinline preload="metadata" src="/imgs/PIAvatar/mesh_restoration.mp4"></video>
+                  <div style="text-align: center">(a) Permanent deformation</div>
+                </div>
+                <div class="col-md-4">
+                  <video class="w-100" muted playsinline preload="metadata" src="/imgs/PIAvatar/stickiness_artifact.mp4"></video>
+                  <div style="text-align: center">(b) Stickiness artifact</div>
+                </div>
+                <div class="col-md-4">
+                  <video class="w-100" muted playsinline preload="metadata" src="/imgs/PIAvatar/remove_artifact.mp4"></video>
+                  <div style="text-align: center">(c) Ours</div>
+                </div>
+              </div>
+              <p style="max-width: 1080px; margin: 10px auto 0; text-align: center;">In standard MPM, strong contact leaves a <b>permanent dent</b> after the ball passes (a), and single-field contact <b>drags the belly along with the ball</b> so it stretches instead of releasing (b). Our <b>shape-preservation term</b> combined with <b>multi-field contact</b> recovers the body shape and lets the ball detach cleanly (c).</p>
+            </div>
+            <!-- Multi-field Contact (Self-Penetration) : Fig.13 (a,b) -->
+            <div class="tab-pane fade" id="tab-selfpen" role="tabpanel" data-sync>
+              <div class="row">
+                <div class="col-md-6">
+                  <video class="w-100" muted playsinline preload="metadata" src="/imgs/PIAvatar/self_pene_off.mp4"></video>
+                  <div style="text-align: center">(a) Self-penetration</div>
+                </div>
+                <div class="col-md-6">
+                  <video class="w-100" muted playsinline preload="metadata" src="/imgs/PIAvatar/self_pene_on.mp4"></video>
+                  <div style="text-align: center">(b) Ours (Multi-field contact)</div>
+                </div>
+              </div>
+              <p style="max-width: 900px; margin: 10px auto 0; text-align: center;">With single-field MPM contact, the two legs <b>fuse together</b> once they touch and lose their individual shape (a). Our <b>multi-field contact</b> keeps them as distinct bodies, preserving each leg's shape while interactions proceed naturally (b).</p>
+            </div>
+              </div><!-- /inner tab-content (artifacts) -->
+            </div><!-- /group-artifacts -->
           </div><!-- /resultsGroupContent -->
           </div><!-- /resultsArea -->
+          <br><br><br>
+
+          <h3>VLM-Driven Physical Parameter Optimization</h3>
+          <img src="/imgs/PIAvatar/BO2.png" alt="VLM-driven physical parameter optimization pipeline" style='height: 100%; width: 100%; max-width: 1000px; object-fit: contain'>
+          <p style="max-width: 1000px; margin: 0 auto;">As an <b>exploratory application</b>, we automatically set physical parameters using a <b>Vision-Language Model (VLM)</b> instead of manual tuning. Since VLMs do not directly understand abstract physical quantities, we provide a <b>text prompt that explains the physics behind the observable cues</b> in the rendered image (e.g., a heavier ball produces a larger belly deformation). Guided by this prior knowledge, the VLM scores each rendered simulation, and <b>Bayesian optimization</b> uses these scores as rewards to automatically converge to physically appropriate parameters. A <b>user study</b> further confirms that human perception of heavy/light and stiff/soft agrees with the optimized parameters, supporting the reliability of this VLM-based reward.</p>
           <br><br><br>
 
           <h3>BibTeX</h3>
@@ -265,8 +323,26 @@
       var grp = document.querySelector('#resultsGroupContent > .tab-pane.active');
       if (!grp) return;
       var leaf = grp.querySelector('.tab-content > .tab-pane.active') || grp;
-      leaf.querySelectorAll('video').forEach(function (v) { var p = v.play(); if (p && p.catch) p.catch(function () {}); });
+      var sync = leaf.hasAttribute('data-sync');
+      leaf.querySelectorAll('video').forEach(function (v) {
+        var r = parseFloat(v.getAttribute('data-rate')); if (r) v.playbackRate = r;
+        if (sync) { try { v.currentTime = 0; } catch (e) {} }
+        var p = v.play(); if (p && p.catch) p.catch(function () {});
+      });
     }
+    // Keep the videos inside a [data-sync] pane looping in lockstep (they carry no native `loop`).
+    document.querySelectorAll('#resultsArea [data-sync]').forEach(function (group) {
+      var vids = group.querySelectorAll('video');
+      var busy = false;
+      function resync() {
+        if (busy) return; busy = true;
+        vids.forEach(function (v) { v.pause(); });
+        vids.forEach(function (v) { try { v.currentTime = 0; } catch (e) {} });
+        vids.forEach(function (v) { var p = v.play(); if (p && p.catch) p.catch(function () {}); });
+        setTimeout(function () { busy = false; }, 150);
+      }
+      vids.forEach(function (v) { v.addEventListener('ended', resync); });
+    });
     document.addEventListener('DOMContentLoaded', playActiveResultPane);
     document.querySelectorAll('#resultsArea button[data-bs-toggle="pill"]').forEach(function (btn) {
       btn.addEventListener('shown.bs.tab', function () {
