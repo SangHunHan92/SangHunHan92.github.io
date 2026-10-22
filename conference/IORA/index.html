@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>IORA: Irregular Object Immobilization under Restricted Actuation | Project Page</title>
+  <meta content="" name="Project page for 'IORA: Irregular Object Immobilization under Restricted Actuation'">
+  <meta content="" name="Sang-Hun Han, South Korea">
+  <link rel="canonical" href="https://sanghunhan92.github.io/conference/IORA/">
+
+  <!-- Favicons -->
+  <link href="/assets/img/favicon/favicon-publication.svg" rel="icon" type="image/svg+xml">
+  <link href="/assets/img/favicon/favicon-publication-32px.png" rel="icon" type="image/png" sizes="32x32">
+  <link href="/assets/img/favicon/favicon-publication-512px.png" rel="icon" type="image/png" sizes="512x512">
+  <link href="/assets/img/favicon/favicon-publication.svg" rel="mask-icon" color="#000000">
+  <link href="/assets/img/favicon/favicon-publication-180px.png" rel="apple-touch-icon" type="image/png" sizes="180x180">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,700&display=swap" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="/asset/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Publication Files -->
+  <link href="/asset/css/publication_style.css" rel="stylesheet">
+
+  <!-- Page-specific: larger, more readable typography -->
+  <style>
+    .publication .container { max-width: 1100px; }
+    .publication .publication-title h2 { font-size: 40px; }
+    .publication .publication-title h4 { font-size: 21px; line-height: 28px; }
+    .publication .publication-title h6 { font-size: 18px; line-height: 22px; }
+    .publication .publication-detail h3 { font-size: 32px; margin-bottom: 6px; }
+    .publication .publication-detail p { font-size: 19px; line-height: 1.65; }
+    .publication .publication-detail .row + div,
+    .publication .publication-detail video + div,
+    .publication .publication-detail img + div { font-size: 18px; }
+    .publication pre { font-size: 16px; }
+    .publication .publication-title .btn { font-size: 20px; padding: 8px 18px; }
+    /* short per-clip labels under each video */
+    .publication .publication-detail .col-md-8 > div,
+    .publication .publication-detail .col-md-6 > div,
+    .publication .publication-detail .col-md-4 > div { font-size: 22px; margin-top: 4px; }
+    /* videos wider than the 640px default from publication_style.css */
+    .publication .publication-detail video.wide { max-width: 100%; }
+    /* teaser column labels */
+    .teaser-labels { display: flex; max-width: 860px; margin: 0 auto 6px; font-family: 'DM Sans', sans-serif; font-size: 20px; font-weight: 600; }
+    .teaser-labels div { flex: 1; text-align: center; }
+    .teaser-labels .bad { color: #c62828; }
+    .teaser-labels .good { color: #2e7d32; }
+    /* results: 2-level tabs */
+    #resultsGroupTab { justify-content: center; gap: 8px; margin-bottom: 14px; border: 0; }
+    #resultsGroupTab .nav-link { font-size: 20px; font-weight: 600; color: #57606a; background: #eef1f4; border-radius: 999px; padding: 9px 26px; }
+    #resultsGroupTab .nav-link.active { background: #0563bb; color: #fff; }
+    .subtab { justify-content: center; gap: 4px; margin-bottom: 18px; border: 0; }
+    .subtab .nav-link { font-size: 18px; color: #57606a; background: #fff; border: 1px solid #d0d7de; border-radius: 999px; padding: 6px 14px; }
+    .subtab .nav-link.active { background: #e7f0fb; color: #0563bb; border-color: #0563bb; font-weight: 600; }
+    #resultsGroupContent .tab-pane { padding-top: 6px; }
+    /* quantitative tables */
+    .publication table.results { margin: 14px auto 0; border-collapse: collapse; font-size: 16px; color: #24292f; }
+    .publication table.results th, .publication table.results td { padding: 6px 12px; border-bottom: 1px solid #e3e6ea; text-align: center; white-space: nowrap; }
+    .publication table.results thead th { background: #f6f8fa; border-bottom: 2px solid #d0d7de; font-weight: 600; }
+    .publication table.results th.setting { text-align: left; background: #fafbfc; font-weight: 600; }
+    .publication table.results td.method { text-align: left; white-space: normal; }
+    .publication table.results.compact { width: 100%; }
+    .publication table.results tr.ours td { background: #eef5fd; }
+    .publication table.results b { color: #0563bb; }
+    .publication .table-note { font-size: 15px; color: #57606a; margin-top: 8px; }
+    .publication .table-scroll { overflow-x: auto; }
+    /* sub-items inside a section: clear gap + small heading */
+    .publication .sub-block { margin-top: 52px; }
+    .publication .publication-detail h5.sub { font-family: "Raleway", sans-serif; font-size: 22px; font-weight: 600; color: #24292f; margin: 0 auto 14px; }
+    .publication .publication-detail h5.sub::after { content: ""; display: block; width: 36px; height: 2px; background: #0563bb; margin: 8px auto 0; opacity: 0.6; }
+  </style>
+</head>
+
+<body>
+  <main id="main">
+    <section class="publication">
+      <div class="container">
+        <div class="publication-title">
+          <h4>Preprint</h4>
+          <h2>IORA: Irregular Object Immobilization <br>under Restricted Actuation</h2>
+          <h4>
+            Sang-Hun Han<sup>1</sup>,
+            Changyeon Won<sup>1</sup>,
+            JunGyu Lee<sup>2</sup>, <br>
+            <a href="https://scholar.google.com/citations?user=VUj1ZWoAAAAJ&hl=en&oi=ao" target="_blank">Min-Gyu Park</a><sup>3,4</sup>, and
+            <a href="https://sites.google.com/site/hgjeoncv" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-html="true" title="<b>Corresponding Author</b> <br> Go to homepage">Hae-Gon Jeon</a><sup>2<span style="font-size:0.7em; vertical-align:0.34em;">&dagger;</span></sup>
+          </h4>
+          <h6>
+            <sup>1</sup>GIST,
+            <sup>2</sup>Yonsei University,
+            <sup>3</sup>KETI,
+            <sup>4</sup>Polygom
+          </h6>
+          <h6 style="margin-bottom: 14px;"><sup>&dagger;</sup>Corresponding author</h6>
+          <div class="btn-group" role="group" aria-label="Top menu">
+            <a class="btn btn-primary" target="_blank" href="#">Paper (Coming Soon)</a>
+            <a class="btn btn-outline-primary" href="#video">Video</a>
+            <a class="btn btn-outline-primary" target="_blank" href="#">Code (Coming Soon)</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="container">
+        <div class="publication-detail">
+
+          <!-- Hero: real-world cooking montage -->
+          <video class="wide" style="max-width: 1100px;" autoplay loop preload="auto" playsinline muted poster="/imgs/IORA/hero_poster.jpg" src="/imgs/IORA/hero_cooking.mp4" type="video/mp4"></video>
+          <div style="text-align: center; max-width: 1000px; margin: 8px auto 0; color: #57606a;">Real-world deployment on the low-DoF <b>Inspire RH56</b>: our synthesized grasps hold six vegetables against the table while a teleoperated knife or peeler cuts and peels them (&times;3 playback).</div>
+          <p style="text-align: center; max-width: 950px; margin: 18px auto 0; font-family: 'DM Sans', sans-serif; font-size: 26px; line-height: 1.45; font-weight: 400; color: #202124;">We treat the <b style="font-weight:700;">support surface as a load-bearing contact</b>, so that a <b style="font-weight:700;">low-DoF coupled hand</b> can immobilize irregular objects under external disturbances.</p>
+          <br><br>
+
+          <h3>Abstract</h3>
+          <p>Stable grasping under task-specific disturbances is important for robotic manipulation. However, most dexterous grasp synthesis methods are developed for highly actuated hands in free space, and low-DoF hands may not be able to realize the contact topologies required by these grasps. Meanwhile, support surfaces can provide useful contact forces, but are often treated only as geometric constraints. We present <b>IORA</b>, a support-aware grasp synthesis framework for object immobilization with low-DoF coupled hands. Given irregular object geometry, our method represents both hand and object local surface regions as graphs and searches for kinematically feasible matchings between them. We then refine the wrist pose and motor state for geometric contact feasibility and validate the refined grasps through physical rollouts. Starting from the validated grasp pose, an optional task-guided local search explores nearby grasp configurations by varying the wrist pose and motor state, and selects one according to the specified task condition. Experiments on diverse objects show that our method generates various grasp configurations that achieve high grasp success and strong disturbance resistance. Real-world experiments further demonstrate physically executable grasps which enable object immobilization in cooking scenarios.</p>
+          <br><br>
+
+          <h3 id="video">Supplementary Video</h3>
+          <video class="wide" style="max-width: 960px;" controls preload="none" playsinline poster="/imgs/IORA/supplementary_poster.jpg" src="/imgs/IORA/supplementary.mp4" type="video/mp4"></video>
+          <div style="text-align: center; margin-top: 6px; color: #57606a;">Real-world grasp execution, disturbance resistance with hanging weights, and cutting / peeling demonstrations (3 min).</div>
+          <br><br>
+
+          <h3>Method</h3>
+          <img src="/imgs/IORA/fig2_overview.jpg" alt="Overview of the IORA grasp synthesis framework" style='height: 100%; width: 100%; max-width: 1050px; object-fit: contain'>
+          <p style="max-width: 1050px; margin: 10px auto 0;">A grasp is a wrist pose and a motor state <i>g</i> = (<i>T</i>, <i>u</i>); the joint angles follow the fixed coupling <i>q</i> = <i>Cu</i> of the hand, so every synthesized grasp stays inside the configuration space the low-DoF hand can actually reach. <b>(A) Graph-based contact configuration.</b> Contact-capable hand regions (fingertips, proximal links, palm) and local object surface regions are represented as graphs whose edges encode pairwise distance and relative surface-normal angle. We search for matchings between the two graphs and keep only those for which a <i>single</i> motor state satisfies all matched pairwise relations, which turns the coupled actuation into a generation-time condition instead of a post-hoc constraint. <b>(B) Region-constrained geometric refinement.</b> Keeping the correspondence fixed, the wrist pose and motor state are refined to close the matched contacts, remove penetration into the object and the table, and suppress unintended contacts from non-matched hand regions. <b>(C) Physics-based validation.</b> Each refined grasp is replayed in simulation: the hand closes from a pre-grasp, and constant disturbances along &plusmn;x, &plusmn;y, &plusmn;z are applied while the object is supported by both the hand contact forces <i>f<sub>c</sub></i> and the tabletop reaction <i>f<sub>s</sub></i>. Only grasps whose object displacement stays below the thresholds in every direction are retained. <b>(D) Task-guided local derivation (optional).</b> Starting from a validated grasp, a local search over wrist perturbations, discrete yaw rotations, and motor-state scans selects a nearby variant that satisfies task constraints such as keeping the hand clear of the cutting region or resisting a particular disturbance direction.</p>
+          <br><br>
+
+          <h3>Why Support-Aware?</h3>
+          <div class="row" style="max-width: 1050px; margin: 0 auto;">
+            <div class="col-md-6">
+              <video class="w-100" autoplay loop muted playsinline preload="metadata" src="/imgs/IORA/coupling_motor.mp4"></video>
+              <div style="text-align: center">Coupled actuation of the RH56</div>
+            </div>
+            <div class="col-md-6">
+              <img src="/imgs/IORA/forces_concept.png" alt="Hand contact forces and tabletop reaction balance an external disturbance" style="display: block; margin: 0 auto; max-width: 100%; max-height: 300px; width: auto; height: auto; object-fit: contain; background: #fff;">
+              <div style="text-align: center">Hand contact <span style="color:#2e7d32; font-weight:600;">f<sub>c</sub></span> + floor reaction <span style="color:#222; font-weight:600;">f<sub>s</sub></span> vs. disturbance <span style="color:#c62828; font-weight:600;">f<sub>d</sub></span></div>
+            </div>
+          </div>
+          <p style="max-width: 1050px; margin: 14px auto 0;"><b>Low-DoF hands cannot realize arbitrary contact topologies.</b> In a coupled hand such as the Inspire RH56, one motor drives several joints at once (left: a single actuator command bends both phalanges of the index finger). Moving one finger region toward a desired contact therefore drags other regions along, producing unintended contacts that push or displace the object, and many contact sets certified by free-space grasp synthesis simply have no realizable motor state. <b>The support surface can supply the missing opposition.</b> Rather than asking the hand to generate every contact force, we let the tabletop provide passive normal and frictional reactions (right). The object is immobilized jointly by the hand and the surface, so simple configurations that a coupled hand <i>can</i> reach become strongly resistant to external forces. We therefore treat the surface as an active part of grasp synthesis and physical validation, not merely as a collision constraint.</p>
+          <br><br>
+
+          <h3>Simulation Results</h3>
+          <div class="sub-block" style="margin-top: 18px;">
+          <h5 class="sub">Disturbance rollouts: baseline vs. ours</h5>
+          <div class="teaser-labels" style="max-width: 760px;">
+            <div class="bad">Baseline (free-space grasp) &#10007;</div>
+            <div class="good">Ours (support-aware grasp) &#10003;</div>
+          </div>
+          <video class="wide" style="max-width: 760px;" autoplay loop preload="metadata" playsinline muted poster="/imgs/IORA/teaser_poster.jpg" src="/imgs/IORA/teaser.mp4" type="video/mp4"></video>
+          <div style="text-align: center; max-width: 760px; margin: 6px auto 0; color: #57606a;">A constant external force is applied to an onion (top) and a cucumber (bottom) held by the RH56 in MuJoCo. Baseline grasps eject the object, whereas our grasps brace it against the tabletop.</div>
+          </div>
+
+          <div class="sub-block">
+          <h5 class="sub">Qualitative comparison on DexGraspNet objects</h5>
+          <img src="/imgs/IORA/fig3_compare.jpg" alt="Qualitative comparison with BODex and Dexonomy" style='height: 100%; width: 100%; max-width: 1050px; object-fit: contain'>
+          <p style="max-width: 1050px; margin: 10px auto 0;">Qualitative comparison with <b>BODex</b> and <b>Dexonomy</b> on eight DexGraspNet objects with the RH56. For each grasp, external forces are applied along the tested axes in MuJoCo and the maximum force resisted along the weakest direction (red arrow) is reported, capped at 50 N. Our grasps form <span style="color:#2e7d32; font-weight:600;">bracing contacts</span> that wrap the object with several links and press it against the support surface, whereas the baselines show <span style="color:#c62828; font-weight:600;">defective contacts</span> such as fingertip-only touch, flat fingers resting on the surface, or one-sided contact without opposition.</p>
+          </div>
+
+          <div class="sub-block">
+          <h5 class="sub">Quantitative comparison on the low-DoF RH56</h5>
+          <div class="table-scroll">
+          <table class="results">
+            <thead>
+              <tr>
+                <th rowspan="2"></th><th rowspan="2">Method</th><th rowspan="2">GSR (%) &uarr;</th><th rowspan="2">OSR (%) &uarr;</th><th rowspan="2">F<sub>min</sub> (N) &uarr;</th>
+                <th colspan="5">Resistance R@F (%) &uarr;</th>
+              </tr>
+              <tr>
+                <th>F = 5</th><th>10</th><th>20</th><th>30</th><th>50 N</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="ours"><th class="setting" rowspan="4">Tabletop</th><td class="method">Ours</td><td>77.7</td><td><b>88.5</b></td><td><b>10.9</b></td><td><b>68.1</b></td><td><b>53.9</b></td><td><b>37.2</b></td><td><b>27.5</b></td><td><b>18.6</b></td></tr>
+              <tr><td class="method">Dexonomy</td><td><b>80.2</b></td><td>42.5</td><td>3.6</td><td>37.4</td><td>18.2</td><td>2.7</td><td>1.6</td><td>0.5</td></tr>
+              <tr><td class="method">DexGraspNet</td><td>64.9</td><td>54.5</td><td>3.8</td><td>46.2</td><td>37.3</td><td>28.3</td><td>19.0</td><td>8.6</td></tr>
+              <tr><td class="method">BODex</td><td>62.0</td><td>77.5</td><td>3.1</td><td>40.5</td><td>28.8</td><td>14.0</td><td>7.5</td><td>5.2</td></tr>
+              <tr class="ours"><th class="setting" rowspan="4">Floating</th><td class="method">Ours</td><td><b>54.7</b></td><td><b>60.0</b></td><td><b>2.3</b></td><td><b>39.0</b></td><td><b>24.1</b></td><td><b>9.7</b></td><td><b>4.5</b></td><td>0.8</td></tr>
+              <tr><td class="method">Dexonomy</td><td>49.7</td><td>28.5</td><td>1.7</td><td>19.3</td><td>6.4</td><td>0.5</td><td>0.5</td><td>0.0</td></tr>
+              <tr><td class="method">DexGraspNet</td><td>31.9</td><td>30.0</td><td>0.3</td><td>18.6</td><td>9.7</td><td>4.7</td><td>3.2</td><td>1.1</td></tr>
+              <tr><td class="method">BODex</td><td>16.2</td><td>26.5</td><td>0.3</td><td>9.8</td><td>7.0</td><td>3.8</td><td>2.5</td><td><b>2.0</b></td></tr>
+            </tbody>
+          </table>
+          </div>
+          <div class="table-note" style="max-width: 1050px; margin-left: auto; margin-right: auto;">Low-DoF RH56 on 200 DexGraspNet test objects under a shared MuJoCo protocol. GSR / OSR: grasp- and object-level success against a 0.98 N disturbance. F<sub>min</sub>: median of the maximum force resisted along the weakest direction. R@F: fraction of grasps that resist at least F newtons in every direction. Dexonomy's high GSR comes from skipping objects for which it fails to produce any valid grasp, which is reflected in its low OSR. On the high-DoF Shadow Hand, our method likewise attains the best F<sub>min</sub> (9.8 N tabletop, 10.5 N floating) and the strongest resistance profile among all methods.</div>
+          </div>
+
+          <div class="sub-block">
+          <h5 class="sub">Support contribution analysis</h5>
+          <div class="row" style="max-width: 1050px; margin: 0 auto; align-items: center;">
+            <div class="col-md-6">
+              <table class="results compact" style="margin-top: 0;">
+                <thead><tr><th>Static force balance</th><th>With tabletop</th><th>Without</th></tr></thead>
+                <tbody>
+                  <tr><td class="method">Feasible grasps (%)</td><td><b>78.9</b></td><td>17.9</td></tr>
+                  <tr><td class="method">Median predicted resistance (N)</td><td><b>13.3</b></td><td>0.0</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="col-md-6">
+              <p style="margin: 0;"><b>How much does the table contribute?</b> For each settled grasp we solve a second-order cone program for the hand&ndash;object and table&ndash;object contact forces that balance an external disturbance under friction and motor-torque limits, once with the tabletop contact and once after removing it while keeping the hand configuration fixed. Removing the surface collapses force-balance feasibility and predicted resistance, confirming that the support directly carries part of the load rather than acting as a passive constraint.</p>
+            </div>
+          </div>
+          </div>
+          <br><br><br>
+
+          <h3>Diverse Grasps on Real Objects</h3>
+          <img src="/imgs/IORA/fig4_realobjects.jpg" alt="Simulated grasps and their real executions on fruit and vegetable replicas" style='height: 100%; width: 100%; max-width: 1050px; object-fit: contain'>
+          <p style="max-width: 1050px; margin: 10px auto 0;">We execute the synthesized grasps on the real RH56 for <b>24 fruit and vegetable replicas</b> and primitive solids (center). Each pair shows the simulated grasp next to its physical execution. The grasps span fingertip, proximal-link, palm, and table-assisted contacts, demonstrating that the synthesis is not restricted to a single grasp pattern and remains executable on the coupled hand.</p>
+          <br><br>
+
+          <h3>Real-World Experiments</h3>
+          <div id="resultsArea">
+
+          <!-- Level 1: result groups -->
+          <ul class="nav nav-pills" id="resultsGroupTab" role="tablist">
+            <li class="nav-item" role="presentation"><button class="nav-link active" data-bs-toggle="pill" data-bs-target="#group-grasp" type="button">Grasp Execution</button></li>
+            <li class="nav-item" role="presentation"><button class="nav-link" data-bs-toggle="pill" data-bs-target="#group-resist" type="button">Disturbance Resistance</button></li>
+            <li class="nav-item" role="presentation"><button class="nav-link" data-bs-toggle="pill" data-bs-target="#group-cooking" type="button">Cooking</button></li>
+          </ul>
+
+          <div class="tab-content" id="resultsGroupContent">
+
+            <!-- ===== Group 1: Grasp Execution ===== -->
+            <div class="tab-pane fade show active" id="group-grasp" role="tabpanel">
+              <ul class="nav nav-pills subtab" role="tablist">
+                <li class="nav-item" role="presentation"><button class="nav-link active" data-bs-toggle="pill" data-bs-target="#tab-apple" type="button">Apple</button></li>
+                <li class="nav-item" role="presentation"><button class="nav-link" data-bs-toggle="pill" data-bs-target="#tab-box" type="button">Box</button></li>
+                <li class="nav-item" role="presentation"><button class="nav-link" data-bs-toggle="pill" data-bs-target="#tab-banana" type="button">Banana</button></li>
+                <li class="nav-item" role="presentation"><button class="nav-link" data-bs-toggle="pill" data-bs-target="#tab-push" type="button">Push &amp; Lift</button></li>
+              </ul>
+              <div class="tab-content">
+            <!-- Apple -->
+            <div class="tab-pane fade show active" id="tab-apple" role="tabpanel">
+              <div class="row">
+                <div class="col-md-8 offset-md-2">
+                  <video class="w-100 wide" loop muted playsinline preload="metadata" src="/imgs/IORA/grasp_apple.mp4"></video>
+                  <div style="text-align: center">Palm-and-finger wrap pressing the apple onto the table</div>
+                </div>
+              </div>
+            </div>
+            <!-- Box -->
+            <div class="tab-pane fade" id="tab-box" role="tabpanel">
+              <div class="row">
+                <div class="col-md-8 offset-md-2">
+                  <video class="w-100 wide" loop muted playsinline preload="metadata" src="/imgs/IORA/grasp_box.mp4"></video>
+                  <div style="text-align: center">Side wrap of a tall box using proximal links</div>
+                </div>
+              </div>
+            </div>
+            <!-- Banana -->
+            <div class="tab-pane fade" id="tab-banana" role="tabpanel">
+              <div class="row">
+                <div class="col-md-8 offset-md-2">
+                  <video class="w-100 wide" loop muted playsinline preload="metadata" src="/imgs/IORA/grasp_banana.mp4"></video>
+                  <div style="text-align: center">Elongated object pinned along its length</div>
+                </div>
+              </div>
+            </div>
+            <!-- Push & Lift -->
+            <div class="tab-pane fade" id="tab-push" role="tabpanel">
+              <div class="row">
+                <div class="col-md-4">
+                  <video class="w-100" loop muted playsinline preload="metadata" src="/imgs/IORA/push_sphere.mp4"></video>
+                  <div style="text-align: center">Sphere: lateral push</div>
+                </div>
+                <div class="col-md-4">
+                  <video class="w-100" loop muted playsinline preload="metadata" src="/imgs/IORA/lift_cylinder.mp4"></video>
+                  <div style="text-align: center">Cylinder: lift, then push</div>
+                </div>
+                <div class="col-md-4">
+                  <video class="w-100" loop muted playsinline preload="metadata" src="/imgs/IORA/push_strawberry.mp4"></video>
+                  <div style="text-align: center">Strawberry: push</div>
+                </div>
+              </div>
+              <p style="max-width: 900px; margin: 10px auto 0; text-align: center;">Hand-applied pushes on settled grasps. The object stays in place because the hand contacts and the tabletop reaction oppose the disturbance together; the cylinder grasp also holds when the object is lifted off the table.</p>
+            </div>
+              </div><!-- /inner tab-content (grasp) -->
+            </div><!-- /group-grasp -->
+
+            <!-- ===== Group 2: Disturbance Resistance ===== -->
+            <div class="tab-pane fade" id="group-resist" role="tabpanel">
+              <ul class="nav nav-pills subtab" role="tablist">
+                <li class="nav-item" role="presentation"><button class="nav-link active" data-bs-toggle="pill" data-bs-target="#tab-wbox" type="button">Box</button></li>
+                <li class="nav-item" role="presentation"><button class="nav-link" data-bs-toggle="pill" data-bs-target="#tab-wsphere" type="button">Sphere</button></li>
+                <li class="nav-item" role="presentation"><button class="nav-link" data-bs-toggle="pill" data-bs-target="#tab-wcyl" type="button">Cylinder</button></li>
+                <li class="nav-item" role="presentation"><button class="nav-link" data-bs-toggle="pill" data-bs-target="#tab-setup" type="button">Setup &amp; Numbers</button></li>
+              </ul>
+              <div class="tab-content">
+            <!-- Weights: box -->
+            <div class="tab-pane fade show active" id="tab-wbox" role="tabpanel">
+              <div class="row">
+                <div class="col-md-10 offset-md-1">
+                  <video class="w-100 wide" loop muted playsinline preload="metadata" src="/imgs/IORA/weight_box.mp4"></video>
+                  <div style="text-align: center">Small box (left) and large box (right) under an increasing hanging load</div>
+                </div>
+              </div>
+            </div>
+            <!-- Weights: sphere -->
+            <div class="tab-pane fade" id="tab-wsphere" role="tabpanel">
+              <div class="row">
+                <div class="col-md-10 offset-md-1">
+                  <video class="w-100 wide" loop muted playsinline preload="metadata" src="/imgs/IORA/weight_sphere.mp4"></video>
+                  <div style="text-align: center">Small sphere (left) and large sphere (right)</div>
+                </div>
+              </div>
+            </div>
+            <!-- Weights: cylinder -->
+            <div class="tab-pane fade" id="tab-wcyl" role="tabpanel">
+              <div class="row">
+                <div class="col-md-10 offset-md-1">
+                  <video class="w-100 wide" loop muted playsinline preload="metadata" src="/imgs/IORA/weight_cylinder.mp4"></video>
+                  <div style="text-align: center">Small cylinder (left) and large cylinder (right)</div>
+                </div>
+              </div>
+            </div>
+            <!-- Setup & numbers -->
+            <div class="tab-pane fade" id="tab-setup" role="tabpanel">
+              <div class="row" style="align-items: center;">
+                <div class="col-md-6">
+                  <img src="/imgs/IORA/fig5_setup.jpg" alt="Pulley setup for real-world disturbance test" style="width: 100%; max-width: 560px; height: auto; object-fit: contain;">
+                  <div style="text-align: center; font-size: 18px;">Weights hung through a pulley pull the grasped object horizontally</div>
+                </div>
+                <div class="col-md-6">
+                  <table class="results" style="margin-top: 0;">
+                    <thead><tr><th>Real RH56, 6 objects &times; 3 grasps</th><th>GSR</th><th>R@10</th><th>R@15</th><th>R@20</th><th>R@25</th><th>R@30</th></tr></thead>
+                    <tbody><tr class="ours"><td class="method">Success rate (%)</td><td><b>94.4</b></td><td>94.4</td><td>77.8</td><td>61.1</td><td>50.0</td><td>50.0</td></tr></tbody>
+                  </table>
+                  <p style="margin-top: 12px; text-align: left; font-size: 18px;">Each object is tested with three different synthesized grasps, and the disturbance is increased in steps up to <b>30 N</b>. 17 of the 18 grasps execute successfully; more than half resist 20 N and half remain settled at the maximum load of 30 N.</p>
+                </div>
+              </div>
+            </div>
+              </div><!-- /inner tab-content (resist) -->
+            </div><!-- /group-resist -->
+
+            <!-- ===== Group 3: Cooking ===== -->
+            <div class="tab-pane fade" id="group-cooking" role="tabpanel">
+              <div class="row">
+                <div class="col-md-10 offset-md-1">
+                  <video class="w-100 wide" loop muted playsinline preload="metadata" src="/imgs/IORA/cooking_grid.mp4"></video>
+                  <div style="text-align: center">Six vegetables held by the RH56 while a teleoperated knife or slicer cuts and peels</div>
+                </div>
+              </div>
+              <p style="max-width: 1000px; margin: 12px auto 0; text-align: center;">Before execution, the optional <b>task-guided local derivation</b> moves the validated grasp so that the hand stays clear of the region the tool needs. The derived support-assisted grasps keep the object immobilized against the table through the cutting and peeling forces, and because cutting changes the geometry, the same pipeline can be re-run on the updated shape to derive the next grasp.</p>
+              <img src="/imgs/IORA/fig6_cooking.jpg" alt="Cooking demonstration: peeling an eggplant, cutting ginger, bell pepper and squash" style='height: 100%; width: 100%; max-width: 1000px; object-fit: contain; margin-top: 18px;'>
+              <div style="text-align: center; color: #57606a;">Peeling an eggplant and cutting a ginger root, a bell pepper and a squash. Red arrows mark the tool force <i>F</i>.</div>
+            </div><!-- /group-cooking -->
+          </div><!-- /resultsGroupContent -->
+          </div><!-- /resultsArea -->
+          <br><br><br>
+
+          <h3>BibTeX</h3>
+          <pre>@article{han2027iora,<br>  title={IORA: Irregular Object Immobilization under Restricted Actuation},<br>  author={Han, Sang-Hun and Won, Changyeon and Lee, JunGyu and Park, Min-Gyu and Jeon, Hae-Gon},<br>  year={2027}<br>}</pre>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Vendor JS Files -->
+  <script src="/asset/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Main JS File -->
+  <script type="text/javascript">
+    var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+    var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+      return new bootstrap.Tooltip(tooltipTriggerEl)
+    })
+    var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'))
+    var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
+      return new bootstrap.Popover(popoverTriggerEl)
+    })
+
+    // Play only the videos in the currently visible (active) Results pane (handles nested tabs)
+    function pauseAllResultVideos() {
+      document.querySelectorAll('#resultsArea video').forEach(function (v) { try { v.pause(); } catch (e) {} });
+    }
+    function playActiveResultPane() {
+      var grp = document.querySelector('#resultsGroupContent > .tab-pane.active');
+      if (!grp) return;
+      var leaf = grp.querySelector('.tab-content > .tab-pane.active') || grp;
+      var sync = leaf.hasAttribute('data-sync');
+      leaf.querySelectorAll('video').forEach(function (v) {
+        var r = parseFloat(v.getAttribute('data-rate')); if (r) v.playbackRate = r;
+        if (sync) { try { v.currentTime = 0; } catch (e) {} }
+        var p = v.play(); if (p && p.catch) p.catch(function () {});
+      });
+    }
+    // Keep the videos inside a [data-sync] pane looping in lockstep (they carry no native `loop`).
+    document.querySelectorAll('#resultsArea [data-sync]').forEach(function (group) {
+      var vids = group.querySelectorAll('video');
+      var busy = false;
+      function resync() {
+        if (busy) return; busy = true;
+        vids.forEach(function (v) { v.pause(); });
+        vids.forEach(function (v) { try { v.currentTime = 0; } catch (e) {} });
+        vids.forEach(function (v) { var p = v.play(); if (p && p.catch) p.catch(function () {}); });
+        setTimeout(function () { busy = false; }, 150);
+      }
+      vids.forEach(function (v) { v.addEventListener('ended', resync); });
+    });
+    document.addEventListener('DOMContentLoaded', playActiveResultPane);
+    document.querySelectorAll('#resultsArea button[data-bs-toggle="pill"]').forEach(function (btn) {
+      btn.addEventListener('shown.bs.tab', function () {
+        pauseAllResultVideos();
+        playActiveResultPane();
+      });
+    });
+  </script>
+
+</body>
+</html>
