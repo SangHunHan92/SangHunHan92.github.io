@@ -111,8 +111,8 @@
 
           <!-- Hero: real-world cooking montage -->
           <video class="wide" style="max-width: 1100px;" autoplay loop preload="auto" playsinline muted poster="/imgs/IORA/hero_poster.jpg" src="/imgs/IORA/hero_cooking.mp4" type="video/mp4"></video>
-          <div style="text-align: center; max-width: 1000px; margin: 8px auto 0; color: #57606a;">Real-world deployment on the low-DoF <b>Inspire RH56</b>: our synthesized grasps hold six vegetables against the table while a teleoperated knife or peeler cuts and peels them (&times;3 playback).</div>
-          <p style="text-align: center; max-width: 950px; margin: 18px auto 0; font-family: 'DM Sans', sans-serif; font-size: 26px; line-height: 1.45; font-weight: 400; color: #202124;">We treat the <b style="font-weight:700;">support surface as a load-bearing contact</b>, so that a <b style="font-weight:700;">low-DoF coupled hand</b> can immobilize irregular objects under external disturbances.</p>
+          <div style="text-align: center; max-width: 1000px; margin: 8px auto 0; color: #57606a;">Real-robot demonstrations with the low-DoF <b>Inspire RH56</b>. Synthesized grasps hold six vegetables against the tabletop during teleoperated cutting and peeling (&times;3 playback).</div>
+          <p style="text-align: center; max-width: 950px; margin: 18px auto 0; font-family: 'DM Sans', sans-serif; font-size: 26px; line-height: 1.45; font-weight: 400; color: #202124;">By using the <b style="font-weight:700;">tabletop as a load-bearing contact</b>, IORA enables a <b style="font-weight:700;">low-DoF coupled hand</b> to immobilize irregular objects under external disturbances.</p>
           <br><br>
 
           <h3>Abstract</h3>
@@ -121,12 +121,12 @@
 
           <h3 id="video">Supplementary Video</h3>
           <video class="wide" style="max-width: 960px;" controls preload="none" playsinline poster="/imgs/IORA/supplementary_poster.jpg" src="/imgs/IORA/supplementary.mp4" type="video/mp4"></video>
-          <div style="text-align: center; margin-top: 6px; color: #57606a;">Real-world grasp execution, disturbance resistance with hanging weights, and cutting / peeling demonstrations (3 min).</div>
+          <div style="text-align: center; margin-top: 6px; color: #57606a;">Real-robot grasp execution, hanging-weight disturbance tests, and cutting and peeling demonstrations (3 min).</div>
           <br><br>
 
           <h3>Method</h3>
           <img src="/imgs/IORA/fig2_overview.jpg" alt="Overview of the IORA grasp synthesis framework" style='height: 100%; width: 100%; max-width: 1050px; object-fit: contain'>
-          <p style="max-width: 1050px; margin: 10px auto 0;">A grasp is a wrist pose and a motor state <i>g</i> = (<i>T</i>, <i>u</i>); the joint angles follow the fixed coupling <i>q</i> = <i>Cu</i> of the hand, so every synthesized grasp stays inside the configuration space the low-DoF hand can actually reach. <b>(A) Graph-based contact configuration.</b> Contact-capable hand regions (fingertips, proximal links, palm) and local object surface regions are represented as graphs whose edges encode pairwise distance and relative surface-normal angle. We search for matchings between the two graphs and keep only those for which a <i>single</i> motor state satisfies all matched pairwise relations, which turns the coupled actuation into a generation-time condition instead of a post-hoc constraint. <b>(B) Region-constrained geometric refinement.</b> Keeping the correspondence fixed, the wrist pose and motor state are refined to close the matched contacts, remove penetration into the object and the table, and suppress unintended contacts from non-matched hand regions. <b>(C) Physics-based validation.</b> Each refined grasp is replayed in simulation: the hand closes from a pre-grasp, and constant disturbances along &plusmn;x, &plusmn;y, &plusmn;z are applied while the object is supported by both the hand contact forces <i>f<sub>c</sub></i> and the tabletop reaction <i>f<sub>s</sub></i>. Only grasps whose object displacement stays below the thresholds in every direction are retained. <b>(D) Task-guided local derivation (optional).</b> Starting from a validated grasp, a local search over wrist perturbations, discrete yaw rotations, and motor-state scans selects a nearby variant that satisfies task constraints such as keeping the hand clear of the cutting region or resisting a particular disturbance direction.</p>
+          <p style="max-width: 1050px; margin: 10px auto 0;">A grasp <i>g</i> = (<i>T</i>, <i>u</i>) specifies a wrist pose <i>T</i> and motor state <i>u</i>, with joint angles constrained by the hand's fixed coupling <i>q</i> = <i>Cu</i>, so every synthesized grasp stays within the configuration space the low-DoF hand can actually reach. <b>(A) Graph-based contact configuration.</b> We represent contact-capable hand regions (fingertips, proximal links, and palm) and object surface regions as graphs, with edges encoding pairwise distances and relative surface-normal angles. We retain only graph matchings whose pairwise relations can all be realized by a <i>single</i> motor state, which turns the coupled actuation into a generation-time condition rather than a post-hoc constraint. <b>(B) Region-constrained geometric refinement.</b> Keeping the matches fixed, we refine the wrist pose and motor state to establish the intended contacts while avoiding penetration into the object or table and unintended contact elsewhere. <b>(C) Physics-based validation.</b> Each grasp is simulated from a pre-grasp pose and tested under constant disturbances along &plusmn;x, &plusmn;y, and &plusmn;z. The hand contacts <i>f<sub>c</sub></i> and the tabletop reaction <i>f<sub>s</sub></i> support the object; we retain grasps whose displacement remains below the thresholds in all tested directions. <b>(D) Task-guided local derivation (optional).</b> A local search over wrist perturbations, discrete yaw rotations, and motor-state scans adapts a validated grasp to constraints such as tool clearance or directional force resistance.</p>
           <br><br>
 
           <h3>Why Support-Aware?</h3>
@@ -137,10 +137,10 @@
             </div>
             <div class="col-md-6">
               <img src="/imgs/IORA/forces_concept.png" alt="Hand contact forces and tabletop reaction balance an external disturbance" style="display: block; margin: 0 auto; max-width: 100%; max-height: 300px; width: auto; height: auto; object-fit: contain; background: #fff;">
-              <div style="text-align: center">Hand contact <span style="color:#2e7d32; font-weight:600;">f<sub>c</sub></span> + floor reaction <span style="color:#222; font-weight:600;">f<sub>s</sub></span> vs. disturbance <span style="color:#c62828; font-weight:600;">f<sub>d</sub></span></div>
+              <div style="text-align: center">Hand contact <span style="color:#2e7d32; font-weight:600;">f<sub>c</sub></span> + tabletop reaction <span style="color:#222; font-weight:600;">f<sub>s</sub></span> vs. disturbance <span style="color:#c62828; font-weight:600;">f<sub>d</sub></span></div>
             </div>
           </div>
-          <p style="max-width: 1050px; margin: 14px auto 0;"><b>Low-DoF hands cannot realize arbitrary contact topologies.</b> In a coupled hand such as the Inspire RH56, one motor drives several joints at once (left: a single actuator command bends both phalanges of the index finger). Moving one finger region toward a desired contact therefore drags other regions along, producing unintended contacts that push or displace the object, and many contact sets certified by free-space grasp synthesis simply have no realizable motor state. <b>The support surface can supply the missing opposition.</b> Rather than asking the hand to generate every contact force, we let the tabletop provide passive normal and frictional reactions (right). The object is immobilized jointly by the hand and the surface, so simple configurations that a coupled hand <i>can</i> reach become strongly resistant to external forces. We therefore treat the surface as an active part of grasp synthesis and physical validation, not merely as a collision constraint.</p>
+          <p style="max-width: 1050px; margin: 14px auto 0;"><b>Coupled actuation limits possible contacts.</b> On the Inspire RH56, one motor drives several joints (left: a single actuator bends both phalanges of the index finger). Moving one finger link toward the object also moves the others, sometimes creating unintended contacts or displacing the object. Many contact configurations designed for fully actuated hands therefore cannot be reproduced on the RH56. <b>The support surface can supply the missing opposition.</b> The tabletop provides normal and frictional forces (right) that help resist disturbances without additional actuators. IORA accounts for these forces during grasp synthesis and physics validation, rather than treating the table only as a collision obstacle.</p>
           <br><br>
 
           <h3>Simulation Results</h3>
@@ -151,13 +151,13 @@
             <div class="good">Ours (support-aware grasp) &#10003;</div>
           </div>
           <video class="wide" style="max-width: 760px;" autoplay loop preload="metadata" playsinline muted poster="/imgs/IORA/teaser_poster.jpg" src="/imgs/IORA/teaser.mp4" type="video/mp4"></video>
-          <div style="text-align: center; max-width: 760px; margin: 6px auto 0; color: #57606a;">A constant external force is applied to an onion (top) and a cucumber (bottom) held by the RH56 in MuJoCo. Baseline grasps eject the object, whereas our grasps brace it against the tabletop.</div>
+          <div style="text-align: center; max-width: 760px; margin: 6px auto 0; color: #57606a;">In MuJoCo, we apply constant external forces to an onion (top) and a cucumber (bottom) held by the RH56. The free-space baseline grasps lose the object, while IORA keeps it braced against the tabletop.</div>
           </div>
 
           <div class="sub-block">
           <h5 class="sub">Qualitative comparison on DexGraspNet objects</h5>
           <img src="/imgs/IORA/fig3_compare.jpg" alt="Qualitative comparison with BODex and Dexonomy" style='height: 100%; width: 100%; max-width: 1050px; object-fit: contain'>
-          <p style="max-width: 1050px; margin: 10px auto 0;">Qualitative comparison with <b>BODex</b> and <b>Dexonomy</b> on eight DexGraspNet objects with the RH56. For each grasp, external forces are applied along the tested axes in MuJoCo and the maximum force resisted along the weakest direction (red arrow) is reported, capped at 50 N. Our grasps form <span style="color:#2e7d32; font-weight:600;">bracing contacts</span> that wrap the object with several links and press it against the support surface, whereas the baselines show <span style="color:#c62828; font-weight:600;">defective contacts</span> such as fingertip-only touch, flat fingers resting on the surface, or one-sided contact without opposition.</p>
+          <p style="max-width: 1050px; margin: 10px auto 0;">Eight DexGraspNet objects grasped by the RH56, comparing IORA with <b>BODex</b> and <b>Dexonomy</b>. For each grasp, we report the maximum force resisted along the weakest tested direction (red arrow), capped at 50 N in MuJoCo. IORA forms <span style="color:#2e7d32; font-weight:600;">bracing contacts</span> that wrap the object with several finger links and press it against the tabletop, whereas the baselines often show <span style="color:#c62828; font-weight:600;">defective contacts</span> such as fingertip-only touch, flat fingers resting on the surface, or one-sided contact without opposition.</p>
           </div>
 
           <div class="sub-block">
@@ -185,7 +185,7 @@
             </tbody>
           </table>
           </div>
-          <div class="table-note" style="max-width: 1050px; margin-left: auto; margin-right: auto;">Low-DoF RH56 on 200 DexGraspNet test objects under a shared MuJoCo protocol. GSR / OSR: grasp- and object-level success against a 0.98 N disturbance. F<sub>min</sub>: median of the maximum force resisted along the weakest direction. R@F: fraction of grasps that resist at least F newtons in every direction. Dexonomy's high GSR comes from skipping objects for which it fails to produce any valid grasp, which is reflected in its low OSR. On the high-DoF Shadow Hand, our method likewise attains the best F<sub>min</sub> (9.8 N tabletop, 10.5 N floating) and the strongest resistance profile among all methods.</div>
+          <div class="table-note" style="max-width: 1050px; margin-left: auto; margin-right: auto;">Results for the RH56 on 200 DexGraspNet test objects using the same MuJoCo evaluation protocol. GSR / OSR: grasp- and object-level success under a 0.98 N disturbance. F<sub>min</sub>: median maximum resistance along the weakest direction. R@F: percentage of grasps resisting at least F newtons in every tested direction. Dexonomy's GSR is computed over grasps it successfully generates; its lower OSR also reflects objects for which it produces no valid grasp. On the high-DoF Shadow Hand, IORA also achieves the highest F<sub>min</sub> (9.8 N with tabletop support and 10.5 N without) and the strongest resistance profile among the compared methods.</div>
           </div>
 
           <div class="sub-block">
@@ -201,7 +201,7 @@
               </table>
             </div>
             <div class="col-md-6">
-              <p style="margin: 0;"><b>How much does the table contribute?</b> For each settled grasp we solve a second-order cone program for the hand&ndash;object and table&ndash;object contact forces that balance an external disturbance under friction and motor-torque limits, once with the tabletop contact and once after removing it while keeping the hand configuration fixed. Removing the surface collapses force-balance feasibility and predicted resistance, confirming that the support directly carries part of the load rather than acting as a passive constraint.</p>
+              <p style="margin: 0;"><b>What does the tabletop contribute?</b> For each settled grasp, we use a second-order cone program to check whether hand&ndash;object and table&ndash;object contact forces can balance an external disturbance under friction and motor-torque limits. We then repeat the calculation without table contact, keeping the hand configuration fixed. Force-balance feasibility drops from <b>78.9% to 17.9%</b>, and median predicted resistance from <b>13.3 N to 0 N</b>.</p>
             </div>
           </div>
           </div>
@@ -209,7 +209,7 @@
 
           <h3>Diverse Grasps on Real Objects</h3>
           <img src="/imgs/IORA/fig4_realobjects.jpg" alt="Simulated grasps and their real executions on fruit and vegetable replicas" style='height: 100%; width: 100%; max-width: 1050px; object-fit: contain'>
-          <p style="max-width: 1050px; margin: 10px auto 0;">We execute the synthesized grasps on the real RH56 for <b>24 fruit and vegetable replicas</b> and primitive solids (center). Each pair shows the simulated grasp next to its physical execution. The grasps span fingertip, proximal-link, palm, and table-assisted contacts, demonstrating that the synthesis is not restricted to a single grasp pattern and remains executable on the coupled hand.</p>
+          <p style="max-width: 1050px; margin: 10px auto 0;">We execute synthesized grasps on the real RH56 for <b>24 fruit and vegetable replicas</b> and primitive solids (center). Each example pairs the simulated grasp with its physical execution. The contacts involve fingertips, proximal links, the palm, and the tabletop, showing that the synthesis is not limited to a single grasp pattern and remains executable on the coupled hand.</p>
           <br><br>
 
           <h3>Real-World Experiments</h3>
@@ -276,7 +276,7 @@
                   <div style="text-align: center">Strawberry: push</div>
                 </div>
               </div>
-              <p style="max-width: 900px; margin: 10px auto 0; text-align: center;">Hand-applied pushes on settled grasps. The object stays in place because the hand contacts and the tabletop reaction oppose the disturbance together; the cylinder grasp also holds when the object is lifted off the table.</p>
+              <p style="max-width: 900px; margin: 10px auto 0; text-align: center;">We apply lateral pushes to the objects after the grasps have settled. Hand and tabletop contacts together resist the disturbance. The cylinder grasp also holds after the object is lifted off the table.</p>
             </div>
               </div><!-- /inner tab-content (grasp) -->
             </div><!-- /group-grasp -->
@@ -329,7 +329,7 @@
                     <thead><tr><th>Real RH56, 6 objects &times; 3 grasps</th><th>GSR</th><th>R@10</th><th>R@15</th><th>R@20</th><th>R@25</th><th>R@30</th></tr></thead>
                     <tbody><tr class="ours"><td class="method">Success rate (%)</td><td><b>94.4</b></td><td>94.4</td><td>77.8</td><td>61.1</td><td>50.0</td><td>50.0</td></tr></tbody>
                   </table>
-                  <p style="margin-top: 12px; text-align: left; font-size: 18px;">Each object is tested with three different synthesized grasps, and the disturbance is increased in steps up to <b>30 N</b>. 17 of the 18 grasps execute successfully; more than half resist 20 N and half remain settled at the maximum load of 30 N.</p>
+                  <p style="margin-top: 12px; text-align: left; font-size: 18px;">We test three grasps per object, increasing the applied load in steps up to <b>30 N</b>. Of 18 grasps, 17 execute successfully, 11 resist 20 N, and 9 resist the maximum tested load of 30 N.</p>
                 </div>
               </div>
             </div>
@@ -341,12 +341,12 @@
               <div class="row">
                 <div class="col-md-10 offset-md-1">
                   <video class="w-100 wide" loop muted playsinline preload="metadata" src="/imgs/IORA/cooking_grid.mp4"></video>
-                  <div style="text-align: center">Six vegetables held by the RH56 while a teleoperated knife or slicer cuts and peels</div>
+                  <div style="text-align: center">Six vegetables held by the RH56 during teleoperated cutting and peeling</div>
                 </div>
               </div>
-              <p style="max-width: 1000px; margin: 12px auto 0; text-align: center;">Before execution, the optional <b>task-guided local derivation</b> moves the validated grasp so that the hand stays clear of the region the tool needs. The derived support-assisted grasps keep the object immobilized against the table through the cutting and peeling forces, and because cutting changes the geometry, the same pipeline can be re-run on the updated shape to derive the next grasp.</p>
+              <p style="max-width: 1000px; margin: 12px auto 0; text-align: center;">For cutting and peeling, we adjust a validated grasp to keep the hand clear of the tool path. The RH56 holds the vegetable against the tabletop as the teleoperated tool applies force. If cutting changes the object's shape, the pipeline can be run again using the updated geometry.</p>
               <img src="/imgs/IORA/fig6_cooking.jpg" alt="Cooking demonstration: peeling an eggplant, cutting ginger, bell pepper and squash" style='height: 100%; width: 100%; max-width: 1000px; object-fit: contain; margin-top: 18px;'>
-              <div style="text-align: center; color: #57606a;">Peeling an eggplant and cutting a ginger root, a bell pepper and a squash. Red arrows mark the tool force <i>F</i>.</div>
+              <div style="text-align: center; color: #57606a;">Peeling an eggplant and cutting ginger, bell pepper, and squash. Red arrows indicate the tool force <i>F</i>.</div>
             </div><!-- /group-cooking -->
           </div><!-- /resultsGroupContent -->
           </div><!-- /resultsArea -->
